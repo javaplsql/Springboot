@@ -59,7 +59,7 @@ public class SwaggerConfig {
                 The API can be used for:\
                 Accounts:\
                 Generate account identifiers.\s
-                <a href="https://gluon.gs.corp/gluon/api-catalog/92/detail/12135"\
+                <a href="https://atom.gs.corp/atom/api-catalog/92/detail/12135"\
                 >Documentation of acc-management microservice</a>\
                 """)
             .version(appVersion))

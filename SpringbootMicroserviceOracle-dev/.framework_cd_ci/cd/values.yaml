@@ -30,7 +30,7 @@ podAnnotations: {}
 # Here is an example file for deploying a plsql micro-service with the micro-java helm chart.
 # It is necessary to reference this file in the deployment.yaml
 # Documentation of all available parameters can be found at
-#   https://gluon.gs.corp/community/docs/latest/capabilities/plsql/plsql-java/current/plsql-helm/
+#   https://atom.gs.corp/community/docs/latest/capabilities/plsql/plsql-java/current/plsql-helm/
 # This example has the minimum necessary parameters to be able to perform the deployment.
 # Please update the values with the correct ones for your project.
 image:
@@ -102,7 +102,7 @@ containerSecurityContext:
 ## e.g:
 ##   podNodeSelector:
 ##     enabled: true
-##     work_type: Gluon-app
+##     work_type: atom-app
 ##     otherNodeLabel: otherNodeLabel-value
 ##
 podNodeSelector:

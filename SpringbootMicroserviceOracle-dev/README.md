@@ -14,7 +14,7 @@ The microservice fcm-app-accountmanaging, makes use of plsql Spring Boot Starter
 
 !!! note
 
-    For more information on how to generate a microservice from the plsql archetype, please refer to the following link: [plsql Spring Boot Archetype Microservice](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-archetypes/plsql-spring-boot-archetype-microservice/index.html)
+    For more information on how to generate a microservice from the plsql archetype, please refer to the following link: [plsql Spring Boot Archetype Microservice](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-archetypes/plsql-spring-boot-archetype-microservice/index.html)
 
 ### Dependency management
 
@@ -29,11 +29,11 @@ The microservice fcm-app-accountmanaging makes use of the following Maven depend
 * [H2 Database](https://h2database.com/html/main.html)
 
 * Framework plsql Spring Boot:
-- [plsql Core](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/)
-- [plsql Cache](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-cache/)
-- [plsql Logging](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-logging/)
-- [plsql Authentication](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-security-authentication/)
-- [plsql OmniChannel](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-omnichannel/)
+- [plsql Core](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/)
+- [plsql Cache](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-cache/)
+- [plsql Logging](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-logging/)
+- [plsql Authentication](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-security-authentication/)
+- [plsql OmniChannel](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-omnichannel/)
 
 ## Project structure
 
@@ -67,7 +67,7 @@ In addition, the microservice has:
 
 - An **application.yml** file together with an *application-local.properties* file with the [properties](#configuration-files).
   necessary to configure the project.
-- An **errors.properties** file for the [configuration of exceptions](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/index.html#excepciones), and a subfolder errors with a Resource Bundle of configurations, for multi-language exceptions (in this case: Spanish (es_ES) and US English (en_US)).
+- An **errors.properties** file for the [configuration of exceptions](https://atom.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/index.html#excepciones), and a subfolder errors with a Resource Bundle of configurations, for multi-language exceptions (in this case: Spanish (es_ES) and US English (en_US)).
 - The **pom.xml** file, which contains all the information that Maven uses to manage dependencies, metadata, etc.
 - An **ApplicationTest.java** to test that the functionality of the application works correctly. 
 Also the corresponding tests for generated classes. Input ports, input adapters, output adapters include their respective units test in the src/test/java folder, An **application-local.properties** for testing with H2 Database has also been added.
@@ -89,7 +89,7 @@ This file contains the following properties of architecture components:
 | *plsql.app-key*                                        | Indicates the application key.Within the monitoring system it will be part of the index name.                                                                                                                                           | Yes                               | _acronym-app_                               | Any         |
 | *plsql.logging.paas-app-version*                       | Artifact version. To have it automatically populated when generating the artefact, we must indicate "@project.version@" as the value and tell Maven to process the resources so that it replaces the string with the corresponding value. | Yes                               | @project.version@                           | Any         |
 | *plsql.logging.entity*                                 | Indicates the country.                                                                                                                                                                                                                  | No                                | ESP                                         | Any         |
-| *plsql.core.exceptions.error-format*                   | Configures the microservice's error model to be plsql format or GLUON format                                                                                                                                                           | No                                | GLUON                                       | Any         |
+| *plsql.core.exceptions.error-format*                   | Configures the microservice's error model to be plsql format or atom format                                                                                                                                                           | No                                | atom                                       | Any         |
 | *plsql.security.connectors.pkm-connector.pkm-endpoint* | Public key manager endpoint                                                                                                                                                                                                             | Yes                               | ${env.pkm-endpoint}                         | Any         |
 | *spring.session.store-type*                             | Determines where Spring Session Saving is implemented. Defaults to the classPath if only one module is present there. Set to none, disables Spring Session.                                                                             | Yes                               | none                                        | Any     |    
 | *spring.cache.type* | Configure the type of cache. | Yes | caffeine | Any |
@@ -209,7 +209,7 @@ To execute this plugin, run the following command:
 
     mvn generate-sources
 
-If you need more information, you can find everything you need about this plugin [here](https://gluon.gs.corp/community/docs/latest/capabilities/arsenal/arsenal-backend/tutorials/code-generator-jpa-maven-plugin/)
+If you need more information, you can find everything you need about this plugin [here](https://atom.gs.corp/community/docs/latest/capabilities/arsenal/arsenal-backend/tutorials/code-generator-jpa-maven-plugin/)
 
 
 ## Spring Actuator: Liveness and Readiness.
@@ -413,5 +413,5 @@ On the other hand, to consult the API documentation in yml format, access the en
 
 ## Support
 
- - In case you detect any issue associated with the plsql framework, please open an issue through the support channel: [Report Issue](https://github.com/java-group-gluon/gln-adoption-entities/issues)
+ - In case you detect any issue associated with the plsql framework, please open an issue through the support channel: [Report Issue](https://github.com/java-group-atom/gln-adoption-entities/issues)
  - In case you detect any issue on a Spain based project, please sign up on this support channel and open an issue: [Report Issue - Spain based project](https://sanes.atlassian.net/jira/software/c/projects/ESPARQSOP/boards/480)
