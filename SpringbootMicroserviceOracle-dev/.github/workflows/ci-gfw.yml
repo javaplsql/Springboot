@@ -1,0 +1,16 @@
+name: Integration
+
+on:
+  push:
+    branches:
+      - development
+      - develop
+      - feature/*
+
+jobs:
+  call-reusable-workflow:
+    name: Integration
+    uses: santander-group-shared-assets/gln-workflows/.github/workflows/maven-ci-gfw.yml@v1
+    with:
+      technology: 'Java_Maven'
+    secrets: inherit
