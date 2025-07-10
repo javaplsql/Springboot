@@ -1,0 +1,5 @@
+- ci_id: OAM-CI-ID
+  configuration_files:
+    - .atom/cd/values.yaml
+    #- .atom/cd/values-native.yaml
+    - .atom/cd/pre/values-pre.yaml

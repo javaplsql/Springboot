@@ -8,7 +8,7 @@ on:
 jobs:
   call-reusable-workflow:
     name: Release fix
-    if: github.actor != 'gluon-app[bot]'
+    if: github.actor != 'atom-app[bot]'
     uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-release-tbd.yml@v1
     with:
       technology: 'Java_Maven'
