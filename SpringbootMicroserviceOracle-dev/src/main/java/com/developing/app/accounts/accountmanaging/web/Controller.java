@@ -1,6 +1,6 @@
 package com.developing.app.accounts.accountmanaging.web;
 
-import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionLeancore;
+import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.WebDataBinder;
@@ -18,7 +18,7 @@ import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.requ
 import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
 import com.java.developing.accounts.accountmanaging.service.accountmanagingService;
 import com.java.developing.accounts.accountmanaging.web.info.GenerateAccountsIdentifiersPostDoc;
-import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionLeancore;
+import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionproject;
 import com.java.developing.accounts.util.lib.core.funtionallog.FuntionalLogUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -100,22 +100,22 @@ public class Controller {
       throw e;
     } catch (Exception e) {
       funtionalLogUtil.logTraceInternalError(e);
-      throw new InternalServerErrorplsqlExceptionLeancore("DC-COMMON-T-9999", "", e);
+      throw new InternalServerErrorplsqlExceptionproject("DC-COMMON-T-9999", "", e);
     }
 
   }
 
   private void validateHeaders(String entityHeader, String brandHeader) {
     if (entityHeader == null || entityHeader.isEmpty()) {
-      throw new BadRequestplsqlExceptionLeancore("CONTRACT-MANAGEMENT-F-0009");
+      throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0009");
     }
 
     if (entityHeader.length() != 4) {
-      throw new BadRequestplsqlExceptionLeancore("CONTRACT-MANAGEMENT-F-0012");
+      throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0012");
     }
 
     if (brandHeader == null || brandHeader.isEmpty()) {
-      throw new BadRequestplsqlExceptionLeancore("CONTRACT-MANAGEMENT-F-0011");
+      throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0011");
     }
   }
 

@@ -1,7 +1,7 @@
 package com.developing.app.accounts.accountmanaging.service;
 
 import com.java.developing.accounts.accountmanaging.repository.ContractIdentifiersRepositoryExt;
-import com.java.developing.accounts.util.lib.db.utils.UtilLeanCoreRepository;
+import com.java.developing.accounts.util.lib.db.utils.UtilprojectRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -36,10 +36,10 @@ public class UuidService {
       return uuid;
     } catch (Exception e) {
       log.error("generateUniqueContractId ERROR {}", e.getMessage());
-      UtilLeanCoreRepository.rollBack(conn);
+      UtilprojectRepository.rollBack(conn);
       throw e;
     } finally {
-      UtilLeanCoreRepository.closeConnection(conn);
+      UtilprojectRepository.closeConnection(conn);
     }
   }
 

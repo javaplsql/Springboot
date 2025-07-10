@@ -1,7 +1,7 @@
 package com.java.developing.accounts.accountmanaging.repository;
 
 import com.developing.app.accounts.accountmanaging.repository.ContractIdentifiersRepositoryExt;
-import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionLeancore;
+import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionproject;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -67,8 +67,8 @@ class ContractIdentifiersRepositoryExtTest {
     when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
     when(mockPreparedStatement.executeQuery()).thenThrow(new SQLException("Database error"));
 
-    InternalServerErrorplsqlExceptionLeancore exception = assertThrows(
-        InternalServerErrorplsqlExceptionLeancore.class,
+    InternalServerErrorplsqlExceptionproject exception = assertThrows(
+        InternalServerErrorplsqlExceptionproject.class,
         () -> repositoryExt.existsByContractId("contractId", mockConnection)
     );
 
@@ -79,8 +79,8 @@ class ContractIdentifiersRepositoryExtTest {
 @Test
   void dothrowsExceptionWhenConnectionIsNull() {
     Connection mockConnection = null;
-    InternalServerErrorplsqlExceptionLeancore exception = assertThrows(
-        InternalServerErrorplsqlExceptionLeancore.class,
+    InternalServerErrorplsqlExceptionproject exception = assertThrows(
+        InternalServerErrorplsqlExceptionproject.class,
         () -> repositoryExt.existsByContractId("contractId", mockConnection)
     );
 

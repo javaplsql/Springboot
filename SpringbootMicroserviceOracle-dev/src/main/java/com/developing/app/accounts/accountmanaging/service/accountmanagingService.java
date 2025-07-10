@@ -11,10 +11,10 @@ import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.requ
 import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
 import com.java.developing.accounts.accnumeratorlib.utils.Numeration;
 import com.java.developing.accounts.accnumeratorlib.service.AccNumeratorService;
-import com.java.developing.accounts.util.lib.core.utils.UtilLeanCoreData;
+import com.java.developing.accounts.util.lib.core.utils.UtilprojectData;
 import com.java.developing.accounts.util.lib.db.model.entity.ContractIdentifiersEntity;
 
-import com.java.developing.accounts.util.lib.db.utils.UtilLeanCoreRepository;
+import com.java.developing.accounts.util.lib.db.utils.UtilprojectRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -128,15 +128,15 @@ public class accountmanagingService {
           .insertContractIdentifiers(contractIdentifiersEntity, conn);
 
       // Commit transaction
-      UtilLeanCoreRepository.commit(conn);
+      UtilprojectRepository.commit(conn);
 
       return response;
     } catch (Exception e) {
       log.error("generateAccountIdentifiers ERROR {}", e.getMessage());
-      UtilLeanCoreRepository.rollBack(conn);
+      UtilprojectRepository.rollBack(conn);
       throw e;
     } finally {
-      UtilLeanCoreRepository.closeConnection(conn);
+      UtilprojectRepository.closeConnection(conn);
     }
   }
 
@@ -159,7 +159,7 @@ public class accountmanagingService {
     contractIdentifiersEntity.setNationalIdentification(accounIdentification.getNationalIdentification());
     contractIdentifiersEntity.setInternationalIdentification(accounIdentification.getInternationalIdentification());
     contractIdentifiersEntity.setLastUpdaterUser("fcm-app-accmanag");
-    contractIdentifiersEntity.setLastUpdaterDateTime(UtilLeanCoreData.getUtcTimestamp());
+    contractIdentifiersEntity.setLastUpdaterDateTime(UtilprojectData.getUtcTimestamp());
     return contractIdentifiersEntity;
   }
 }

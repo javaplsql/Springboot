@@ -72,8 +72,8 @@ spring:
       spec: expireAfterWrite=5m
   lifecycle.timeout-per-shutdown-phase: 2m
   datasource:
-    url: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
-    jdbcUrl: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
+    url: jdbc:oracle:thin:@ODISLM4C.proj.DEV.CORP:60137/ODISLM4C
+    jdbcUrl: jdbc:oracle:thin:@ODISLM4C.proj.DEV.CORP:60137/ODISLM4C
     username: DELM4C
     password: ous_C5sT3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -112,7 +112,7 @@ resilience4j:
         waitDurationInOpenState: 60000
         failureRateThreshold: 50
         ignore-exceptions:
-          - com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionLeancore
-          - com.java.developing.accounts.util.lib.core.exceptions.UnauthorizedplsqlExceptionLeancore
-          - com.java.developing.accounts.util.lib.core.exceptions.ForbiddenplsqlExceptionLeancore
-          - com.java.developing.accounts.util.lib.core.exceptions.NotFoundplsqlExceptionLeancore
+          - com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.UnauthorizedplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.ForbiddenplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.NotFoundplsqlExceptionproject

@@ -7,8 +7,8 @@ import com.java.developing.accounts.accountmanaging.model.Product;
 import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
 import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
 import com.java.developing.accounts.accountmanaging.service.accountmanagingService;
-import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionLeancore;
-import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionLeancore;
+import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject;
+import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionproject;
 
 import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -111,9 +111,9 @@ class ControllerTest {
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
     when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
-        .thenThrow(new BadRequestplsqlExceptionLeancore("accountmanaging-0001"));
+        .thenThrow(new BadRequestplsqlExceptionproject("accountmanaging-0001"));
 
-    assertThrows(BadRequestplsqlExceptionLeancore.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
+    assertThrows(BadRequestplsqlExceptionproject.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
   }
 
   @Test
@@ -129,7 +129,7 @@ class ControllerTest {
     String preAssigmentContractIndicator = "Y";
     when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenThrow(new RuntimeException("Unexpected error"));
 
-    assertThrows(InternalServerErrorplsqlExceptionLeancore.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
+    assertThrows(InternalServerErrorplsqlExceptionproject.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
   }
 
 
@@ -183,7 +183,7 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
   String preAssigmentContractIndicator = "Y";
   when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
-  BadRequestplsqlExceptionLeancore exception = assertThrows(BadRequestplsqlExceptionLeancore.class, () ->
+  BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
       controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
   Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0001", exception.getErrorName());
@@ -209,7 +209,7 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
     String preAssigmentContractIndicator = "Y";
     when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
-    BadRequestplsqlExceptionLeancore exception = assertThrows(BadRequestplsqlExceptionLeancore.class, () ->
+    BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
         controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
     Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0001", exception.getErrorName());
@@ -257,9 +257,9 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
     when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
-        .thenThrow(new BadRequestplsqlExceptionLeancore("accountmanaging-0002"));
+        .thenThrow(new BadRequestplsqlExceptionproject("accountmanaging-0002"));
 
-    BadRequestplsqlExceptionLeancore exception = assertThrows(BadRequestplsqlExceptionLeancore.class, () ->
+    BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
         controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
     Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0002", exception.getErrorName());
