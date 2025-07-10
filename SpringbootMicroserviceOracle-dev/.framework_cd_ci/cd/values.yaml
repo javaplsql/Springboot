@@ -301,7 +301,7 @@ ssl:
 
   image:
     registry: registry.global.ccc.srvb.bo.paas.cloudcenter.corp
-    repository: produban/init-certs-container
+    repository: develop/init-certs-container
     tag: 1.0.8.RELEASE
     ## @param ssl.image.pullPolicy Init container cert-store-generation image pull policy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'

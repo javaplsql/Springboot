@@ -1,4 +1,4 @@
-FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/produban/javase-17-ubi8:latest
+FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/develop/javase-17-ubi8:latest
 WORKDIR /opt/app
 COPY target/native-executable /opt/app
 # Execute java

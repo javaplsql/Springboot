@@ -1,11 +1,11 @@
-FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/produban/javase-17-ubi8:latest as builder
+FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/develop/javase-17-ubi8:latest as builder
 COPY --chown=java:java target/*.jar /tmp/
 # find application jar & extract layers
 RUN export JAR_PATH=`find /tmp -maxdepth 1 -name "*jar" | sort | tail -1` && \
     echo "JAR_PATH: $JAR_PATH" && \
     java -Djarmode=layertools -jar $JAR_PATH extract --destination /tmp/app
 
-FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/produban/javase-17-ubi8:latest
+FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/develop/javase-17-ubi8:latest
 ARG EXTRACTED=/tmp/app
 WORKDIR /opt/app
 # Copy layers
