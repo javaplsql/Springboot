@@ -3,19 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Definition of the artifact -->
-    <groupId>com.santander.sgt.ap11085</groupId>
-    <artifactId>sgt-ap11085-accmanagement</artifactId>
+    <groupId>com.java.fcm.app</groupId>
+    <artifactId>fcm-app-accountmanaging</artifactId>
     <version>6.0.1</version>
     <packaging>jar</packaging>
     <!-- Information about the application -->
-    <name>sgt-ap11085-accmanagement</name>
+    <name>fcm-app-accountmanaging</name>
     <description>Microservicio que incluye los endpoints de numeración del API Accounts, apertura, modificación de
         atributos, consultas, etc
     </description>
     <!-- Use starter parent -->
     <parent>
-        <groupId>com.santander.darwin</groupId>
-        <artifactId>darwin-spring-boot-starter-parent</artifactId>
+        <groupId>com.java.plsql</groupId>
+        <artifactId>plsql-spring-boot-starter-parent</artifactId>
         <version>6.2.1</version>
     </parent>
 
@@ -26,16 +26,16 @@
 
     <dependencies>
 
-        <!-- Leancore Dependencies -->
+        <!-- project Dependencies -->
         <dependency>
-            <groupId>com.santander.sgt.ap11085</groupId>
-            <artifactId>sgt-ap11085-accnumeratorlib</artifactId>
+            <groupId>com.java.fcm.app</groupId>
+            <artifactId>fcm-app-accnumeratorlib</artifactId>
             <version>6.0.1</version>
         </dependency>
-        <!-- END Leancore Dependencies -->
+        <!-- END project Dependencies -->
 
 
-        <!-- End Santander Darwin libraries -->
+        <!-- End java plsql libraries -->
 
         <!--    Provided dependencies    -->
         <dependency>
@@ -51,7 +51,7 @@
         </dependency>
 
         <!--   END  Provided dependencies    -->
-        <!-- Override to fix vulnerability. Delete when Darwin includes this version -->
+        <!-- Override to fix vulnerability. Delete when plsql includes this version -->
         <!-- Spring Boot Actuator dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,31 +67,31 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         </dependency>
-        <!-- Santander Darwin libraries -->
+        <!-- java plsql libraries -->
         <!-- Core dependency -->
         <dependency>
-            <groupId>com.santander.darwin</groupId>
-            <artifactId>darwin-spring-boot-starter-core</artifactId>
+            <groupId>com.java.plsql</groupId>
+            <artifactId>plsql-spring-boot-starter-core</artifactId>
         </dependency>
         <!-- Logging dependency -->
         <dependency>
-            <groupId>com.santander.darwin</groupId>
-            <artifactId>darwin-spring-boot-starter-logging-kafka</artifactId>
+            <groupId>com.java.plsql</groupId>
+            <artifactId>plsql-spring-boot-starter-logging-kafka</artifactId>
         </dependency>
         <!-- Cache dependency -->
         <dependency>
-            <groupId>com.santander.darwin</groupId>
-            <artifactId>darwin-spring-boot-starter-cache-caffeine</artifactId>
+            <groupId>com.java.plsql</groupId>
+            <artifactId>plsql-spring-boot-starter-cache-caffeine</artifactId>
         </dependency>
         <!-- Authentication dependency -->
         <dependency>
-            <groupId>com.santander.darwin</groupId>
-            <artifactId>darwin-spring-boot-starter-authentication</artifactId>
+            <groupId>com.java.plsql</groupId>
+            <artifactId>plsql-spring-boot-starter-authentication</artifactId>
         </dependency>
         <!-- Omnichannel dependency -->
         <dependency>
-            <groupId>com.santander.darwin</groupId>
-            <artifactId>darwin-spring-boot-starter-omnichannel</artifactId>
+            <groupId>com.java.plsql</groupId>
+            <artifactId>plsql-spring-boot-starter-omnichannel</artifactId>
         </dependency>
 
 
@@ -181,7 +181,7 @@
                     <include>**/*.yaml</include>
                     <include>**/banner.txt</include>
                     <include>schema.sql</include>
-                    <include>**/darwinchannels.json</include>
+                    <include>**/plsqlchannels.json</include>
                 </includes>
             </resource>
         </resources>

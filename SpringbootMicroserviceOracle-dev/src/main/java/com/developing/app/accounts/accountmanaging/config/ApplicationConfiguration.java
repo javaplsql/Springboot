@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.config;
+package com.developing.app.accounts.accountmanaging.config;
 
 import javax.sql.DataSource;
 

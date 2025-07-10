@@ -6,7 +6,7 @@ server:
   shutdown: graceful
   forward-headers-strategy: framework
   servlet:
-    context-path: /accmanagement
+    context-path: /accountmanaging
   max-http-request-header-size: 128KB
 
 # =======================
@@ -18,14 +18,14 @@ springdoc:
     path: /swagger-ui.html
 
 # =======================
-# Darwin Configuration
+# plsql Configuration
 # =======================
-darwin:
+plsql:
   app-key: ACC
-  darwin-error-format: true
+  plsql-error-format: true
   region: boae
   suffix: ""
-  app-name: ap11085
+  app-name: app
   logging:
     activity:
       enabled: true
@@ -33,8 +33,8 @@ darwin:
       enabled: true
     system: Cuentas Vista y Plazo
     subsystem: ISL00140 CUENTAS PERSONALES
-    application: 00000148 ACCMANAGEMENT
-    subapplication: accmanagement
+    application: 00000148 accountmanaging
+    subapplication: accountmanaging
     paas-app-version: "@project.version@"
     functional:
       logged-endpoints: ${server.servlet.context-path}/**
@@ -42,7 +42,7 @@ darwin:
     connectors:
       pkm-connector:
         pkm-endpoint:
-          - https://pkm-gravityplus.sgtech.dev.corp/v1/publicKey
+          - https://pkm-gravityplus.fcmech.dev.corp/v1/publicKey
     white-list:
       - /actuator/health/**
       - /**
@@ -63,7 +63,7 @@ spring:
 #  config:
 #    import: optional:configserver:
   application:
-    name: sgt-ap11085-accmanagement
+    name: fcm-app-accountmanaging
   session:
     store-type: none
   cache:
@@ -72,8 +72,8 @@ spring:
       spec: expireAfterWrite=5m
   lifecycle.timeout-per-shutdown-phase: 2m
   datasource:
-    url: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
-    jdbcUrl: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
+    url: jdbc:oracle:thin:@ODISLM4C.proj.DEV.CORP:60137/ODISLM4C
+    jdbcUrl: jdbc:oracle:thin:@ODISLM4C.proj.DEV.CORP:60137/ODISLM4C
     username: DELM4C
     password: ous_C5sT3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -97,7 +97,7 @@ management:
 # =======================
 logging:
   level:
-    com.santander.digitalcore.accounts: INFO
+    com.java.developing.accounts: INFO
     root: WARN
 
 # =======================
@@ -112,7 +112,7 @@ resilience4j:
         waitDurationInOpenState: 60000
         failureRateThreshold: 50
         ignore-exceptions:
-          - com.santander.digitalcore.accounts.util.lib.core.exceptions.BadRequestDarwinExceptionLeancore
-          - com.santander.digitalcore.accounts.util.lib.core.exceptions.UnauthorizedDarwinExceptionLeancore
-          - com.santander.digitalcore.accounts.util.lib.core.exceptions.ForbiddenDarwinExceptionLeancore
-          - com.santander.digitalcore.accounts.util.lib.core.exceptions.NotFoundDarwinExceptionLeancore
+          - com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.UnauthorizedplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.ForbiddenplsqlExceptionproject
+          - com.java.developing.accounts.util.lib.core.exceptions.NotFoundplsqlExceptionproject

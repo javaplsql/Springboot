@@ -8,7 +8,7 @@ on:
 jobs:
   call-reusable-workflow:
     name: Integration fix
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/maven-ci-tbd.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-ci-tbd.yml@v1
     with:
       technology: 'Java_Maven'
     secrets: inherit

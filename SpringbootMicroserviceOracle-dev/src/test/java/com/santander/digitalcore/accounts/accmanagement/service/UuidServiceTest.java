@@ -1,6 +1,7 @@
-package com.santander.digitalcore.accounts.accmanagement.service;
+package com.java.developing.accounts.accountmanaging.service;
 
-import com.santander.digitalcore.accounts.accmanagement.repository.ContractIdentifiersRepositoryExt;
+import com.developing.app.accounts.accountmanaging.service.UuidService;
+import com.java.developing.accounts.accountmanaging.repository.ContractIdentifiersRepositoryExt;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

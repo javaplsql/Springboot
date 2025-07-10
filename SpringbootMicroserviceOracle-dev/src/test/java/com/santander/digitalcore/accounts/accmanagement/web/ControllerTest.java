@@ -1,20 +1,21 @@
-package com.santander.digitalcore.accounts.accmanagement.web;
+package com.java.developing.accounts.accountmanaging.web;
 
-import com.santander.darwin.core.exceptions.GenericDarwinException;
-import com.santander.digitalcore.accounts.accmanagement.model.Center;
-import com.santander.digitalcore.accounts.accmanagement.model.Product;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
-import com.santander.digitalcore.accounts.accmanagement.service.AccManagementService;
-import com.santander.digitalcore.accounts.util.lib.core.exceptions.BadRequestDarwinExceptionLeancore;
-import com.santander.digitalcore.accounts.util.lib.core.exceptions.InternalServerErrorDarwinExceptionLeancore;
+import com.java.plsql.core.exceptions.GenericplsqlException;
+import com.developing.app.accounts.accountmanaging.web.Controller;
+import com.java.developing.accounts.accountmanaging.model.Center;
+import com.java.developing.accounts.accountmanaging.model.Product;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
+import com.java.developing.accounts.accountmanaging.service.accountmanagingService;
+import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject;
+import com.java.developing.accounts.util.lib.core.exceptions.InternalServerErrorplsqlExceptionproject;
 
 import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.santander.digitalcore.accounts.util.lib.core.funtionallog.FuntionalLogUtil;
+import com.java.developing.accounts.util.lib.core.funtionallog.FuntionalLogUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ class ControllerTest {
   private FuntionalLogUtil funtionalLogUtil;
 
   @Mock
-  private AccManagementService accManagementService;
+  private accountmanagingService accountmanagingService;
 
   @InjectMocks
   private Controller controller;
@@ -72,7 +73,7 @@ class ControllerTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
     // Act
     GenerateAccountIdentifiersPostResponse actualResponse = controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader);
@@ -94,7 +95,7 @@ class ControllerTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(new GenerateAccountIdentifiersPostResponse());
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(new GenerateAccountIdentifiersPostResponse());
 
     Assertions.assertNotNull(request);
 
@@ -109,10 +110,10 @@ class ControllerTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
-        .thenThrow(new BadRequestDarwinExceptionLeancore("ACCMANAGEMENT-0001"));
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
+        .thenThrow(new BadRequestplsqlExceptionproject("accountmanaging-0001"));
 
-    assertThrows(BadRequestDarwinExceptionLeancore.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
+    assertThrows(BadRequestplsqlExceptionproject.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
   }
 
   @Test
@@ -126,9 +127,9 @@ class ControllerTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenThrow(new RuntimeException("Unexpected error"));
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenThrow(new RuntimeException("Unexpected error"));
 
-    assertThrows(InternalServerErrorDarwinExceptionLeancore.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
+    assertThrows(InternalServerErrorplsqlExceptionproject.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
   }
 
 
@@ -147,18 +148,18 @@ class ControllerTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
 
-    when(accManagementService.generateAccountIdentifiers(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any()))
-        .thenThrow(new GenericDarwinException("XX1111", 500, "Internal Server Error", "Something is horribly wrong."));
+    when(accountmanagingService.generateAccountIdentifiers(Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any()))
+        .thenThrow(new GenericplsqlException("XX1111", 500, "Internal Server Error", "Something is horribly wrong."));
 
-    assertThrows(GenericDarwinException.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
+    assertThrows(GenericplsqlException.class, () -> controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
   }
 
   @Test
   void controllerConstructorInitializesDependenciesCorrectly() {
     FuntionalLogUtil mockFuntionalLogUtil = mock(FuntionalLogUtil.class);
-    AccManagementService mockAccManagementService = mock(AccManagementService.class);
+    accountmanagingService mockaccountmanagingService = mock(accountmanagingService.class);
 
-    Controller controllerG = new Controller(mockFuntionalLogUtil, mockAccManagementService);
+    Controller controllerG = new Controller(mockFuntionalLogUtil, mockaccountmanagingService);
 
     Assertions.assertNotNull(controllerG);
   }
@@ -180,9 +181,9 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
   String entityHeader = "0049";
   String brandHeader = "brand-header-value";
   String preAssigmentContractIndicator = "Y";
-  when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
+  when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
-  BadRequestDarwinExceptionLeancore exception = assertThrows(BadRequestDarwinExceptionLeancore.class, () ->
+  BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
       controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
   Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0001", exception.getErrorName());
@@ -206,9 +207,9 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
-    BadRequestDarwinExceptionLeancore exception = assertThrows(BadRequestDarwinExceptionLeancore.class, () ->
+    BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
         controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
     Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0001", exception.getErrorName());
@@ -231,7 +232,7 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator)).thenReturn(expectedResponse);
 
     // Act
     GenerateAccountIdentifiersPostResponse actualResponse = controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader);
@@ -255,10 +256,10 @@ void testGenerateAccountsIdentifiers_ProductCodeNull() throws Exception {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    when(accManagementService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
-        .thenThrow(new BadRequestDarwinExceptionLeancore("ACCMANAGEMENT-0002"));
+    when(accountmanagingService.generateAccountIdentifiers(request, entityHeader, brandHeader, preAssigmentContractIndicator))
+        .thenThrow(new BadRequestplsqlExceptionproject("accountmanaging-0002"));
 
-    BadRequestDarwinExceptionLeancore exception = assertThrows(BadRequestDarwinExceptionLeancore.class, () ->
+    BadRequestplsqlExceptionproject exception = assertThrows(BadRequestplsqlExceptionproject.class, () ->
         controller.generateAccountsIdentifiersPost(request, entityHeader, brandHeader));
 
     Assertions.assertEquals("CONTRACT-MANAGEMENT-F-0002", exception.getErrorName());

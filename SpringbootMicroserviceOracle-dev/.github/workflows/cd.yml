@@ -23,7 +23,7 @@ on:
 jobs:
     call-reusable-workflow:
         name: Deploy
-        uses: santander-group-shared-assets/gln-workflows/.github/workflows/cd.yml@v1
+        uses: java-group-shared-assets/gln-workflows/.github/workflows/cd.yml@v1
         with:
           version: ${{ inputs.version }}
           technology: 'helm'

@@ -1,20 +1,20 @@
-package com.santander.digitalcore.accounts.accmanagement.service;
+package com.developing.app.accounts.accountmanaging.service;
 
 import java.sql.Connection;
 import java.util.Objects;
-import com.santander.digitalcore.accounts.util.lib.db.model.repository.ContractIdentifiersRepository;
+import com.java.developing.accounts.util.lib.db.model.repository.ContractIdentifiersRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.santander.digitalcore.accounts.accmanagement.model.AccounIdentification;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
-import com.santander.digitalcore.accounts.accnumeratorlib.utils.Numeration;
-import com.santander.digitalcore.accounts.accnumeratorlib.service.AccNumeratorService;
-import com.santander.digitalcore.accounts.util.lib.core.utils.UtilLeanCoreData;
-import com.santander.digitalcore.accounts.util.lib.db.model.entity.ContractIdentifiersEntity;
+import com.java.developing.accounts.accountmanaging.model.AccounIdentification;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
+import com.java.developing.accounts.accnumeratorlib.utils.Numeration;
+import com.java.developing.accounts.accnumeratorlib.service.AccNumeratorService;
+import com.java.developing.accounts.util.lib.core.utils.UtilprojectData;
+import com.java.developing.accounts.util.lib.db.model.entity.ContractIdentifiersEntity;
 
-import com.santander.digitalcore.accounts.util.lib.db.utils.UtilLeanCoreRepository;
+import com.java.developing.accounts.util.lib.db.utils.UtilprojectRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Service
 @Slf4j
-public class AccManagementService {
+public class accountmanagingService {
 
   private final ContractIdentifiersRepository contractIdentifiersRepository;
 
@@ -57,7 +57,7 @@ public class AccManagementService {
    * @param accNumeratorService                Servicio para manejar la numeración de cuentas.
    *
    */
-  public AccManagementService(ContractIdentifiersRepository contractIdentifiersRepository,
+  public accountmanagingService(ContractIdentifiersRepository contractIdentifiersRepository,
                               JdbcTemplate jdbcTemplate,
                               Numeration numeration, UuidService uuidService,
                               AccNumeratorService accNumeratorService) {
@@ -85,7 +85,7 @@ public class AccManagementService {
       conn = Objects.requireNonNull(jdbcTemplate.getDataSource()).getConnection();
       conn.setAutoCommit(false);
 
-      //Accedemos a la tabla DC_CONTRACT_COUNTER_SANTANDER por entity y center
+      //Accedemos a la tabla DC_CONTRACT_COUNTER_java por entity y center
       // Obtenemos el último número de contract_id para la entidad y centro
       //llamando al servicio de la libreria accnumeratorlib
 
@@ -128,15 +128,15 @@ public class AccManagementService {
           .insertContractIdentifiers(contractIdentifiersEntity, conn);
 
       // Commit transaction
-      UtilLeanCoreRepository.commit(conn);
+      UtilprojectRepository.commit(conn);
 
       return response;
     } catch (Exception e) {
       log.error("generateAccountIdentifiers ERROR {}", e.getMessage());
-      UtilLeanCoreRepository.rollBack(conn);
+      UtilprojectRepository.rollBack(conn);
       throw e;
     } finally {
-      UtilLeanCoreRepository.closeConnection(conn);
+      UtilprojectRepository.closeConnection(conn);
     }
   }
 
@@ -158,8 +158,8 @@ public class AccManagementService {
     contractIdentifiersEntity.setLegacyIdentification(null);
     contractIdentifiersEntity.setNationalIdentification(accounIdentification.getNationalIdentification());
     contractIdentifiersEntity.setInternationalIdentification(accounIdentification.getInternationalIdentification());
-    contractIdentifiersEntity.setLastUpdaterUser("sgt-ap11085-accmanag");
-    contractIdentifiersEntity.setLastUpdaterDateTime(UtilLeanCoreData.getUtcTimestamp());
+    contractIdentifiersEntity.setLastUpdaterUser("fcm-app-accmanag");
+    contractIdentifiersEntity.setLastUpdaterDateTime(UtilprojectData.getUtcTimestamp());
     return contractIdentifiersEntity;
   }
 }

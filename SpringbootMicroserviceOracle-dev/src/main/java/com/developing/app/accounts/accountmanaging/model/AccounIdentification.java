@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.model;
+package com.developing.app.accounts.accountmanaging.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

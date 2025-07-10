@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.config;
+package com.java.developing.accounts.accountmanaging.config;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +11,8 @@ import org.springframework.cache.CacheManager;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.developing.app.accounts.accountmanaging.config.ApplicationConfiguration;
 
 import javax.sql.DataSource;
 

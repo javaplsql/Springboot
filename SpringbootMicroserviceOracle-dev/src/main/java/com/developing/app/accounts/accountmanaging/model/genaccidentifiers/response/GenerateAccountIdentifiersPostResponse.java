@@ -1,6 +1,6 @@
-package com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.response;
+package com.developing.app.accounts.accountmanaging.model.genaccidentifiers.response;
 
-import com.santander.digitalcore.accounts.accmanagement.model.AccounIdentification;
+import com.java.developing.accounts.accountmanaging.model.AccounIdentification;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

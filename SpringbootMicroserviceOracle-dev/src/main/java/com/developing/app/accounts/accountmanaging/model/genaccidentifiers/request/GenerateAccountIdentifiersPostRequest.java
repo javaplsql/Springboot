@@ -1,9 +1,9 @@
-package com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.request;
+package com.developing.app.accounts.accountmanaging.model.genaccidentifiers.request;
 
-import com.santander.digitalcore.accounts.accmanagement.model.Center;
-import com.santander.digitalcore.accounts.accmanagement.model.Product;
-import com.santander.digitalcore.accounts.util.lib.core.exceptions.BadRequestDarwinExceptionLeancore;
-import com.santander.digitalcore.accounts.util.lib.core.validation.AbstractLeanCoreRequestValidator;
+import com.java.developing.accounts.accountmanaging.model.Center;
+import com.java.developing.accounts.accountmanaging.model.Product;
+import com.java.developing.accounts.util.lib.core.exceptions.BadRequestplsqlExceptionproject;
+import com.java.developing.accounts.util.lib.core.validation.AbstractprojectRequestValidator;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "Data structure containing information about an account")
-public class GenerateAccountIdentifiersPostRequest extends AbstractLeanCoreRequestValidator {
+public class GenerateAccountIdentifiersPostRequest extends AbstractprojectRequestValidator {
 
 	/**
 	 * center
@@ -39,12 +39,12 @@ public class GenerateAccountIdentifiersPostRequest extends AbstractLeanCoreReque
 	public void validate(GenerateAccountIdentifiersPostRequest request) {
 
 		if (request.getCenter() == null) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0005");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0005");
 		}
 		validateCenter(request.getCenter().getCenterId());
 
 		if (request.getProduct() == null) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0004");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0004");
 		}
 		validateProduct(request.getProduct().getProductCode());
 
@@ -52,21 +52,21 @@ public class GenerateAccountIdentifiersPostRequest extends AbstractLeanCoreReque
 
 	private void validateCenter(String centerId) {
 		if (centerId == null || centerId.isEmpty()) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0006");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0006");
 		}
 
 		if (centerId.length() > 4 || !centerId.matches("\\d+")) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0007");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0007");
 		}
 	}
 
 	private void validateProduct(String productCode) {
 		if (productCode == null || productCode.isEmpty()) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0001");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0001");
 		}
 
 		if (productCode.length() > 10 || !productCode.matches("\\d+")) {
-			throw new BadRequestDarwinExceptionLeancore("CONTRACT-MANAGEMENT-F-0002");
+			throw new BadRequestplsqlExceptionproject("CONTRACT-MANAGEMENT-F-0002");
 		}
 	}
 //sonar

@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.config;
+package com.java.developing.accounts.accountmanaging.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import org.junit.jupiter.api.Assertions;
@@ -9,6 +9,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import com.developing.app.accounts.accountmanaging.config.SwaggerConfig;
 
 @ExtendWith(MockitoExtension.class)
 class SwaggerConfigTest {
@@ -22,7 +24,7 @@ class SwaggerConfigTest {
 
 		Assertions.assertNotNull(groupedOpenApi);
 		Assertions.assertEquals("api-web", groupedOpenApi.getGroup());
-		Assertions.assertTrue(groupedOpenApi.getPackagesToScan().contains("com.santander.digitalcore.accounts.accmanagement.web"));
+		Assertions.assertTrue(groupedOpenApi.getPackagesToScan().contains("com.java.developing.accounts.accountmanaging.web"));
 	}
 
 	@Test
@@ -32,7 +34,7 @@ class SwaggerConfigTest {
 		OpenAPI openAPI = swaggerConfig.apiInfo(appVersion);
 
 		Assertions.assertNotNull(openAPI);
-		Assertions.assertEquals("accmanagement", openAPI.getInfo().getTitle());
+		Assertions.assertEquals("accountmanaging", openAPI.getInfo().getTitle());
 		Assertions.assertEquals(appVersion, openAPI.getInfo().getVersion());
 		Assertions.assertNotNull(openAPI.getComponents().getSecuritySchemes().get("BearerAuth"));
 	}

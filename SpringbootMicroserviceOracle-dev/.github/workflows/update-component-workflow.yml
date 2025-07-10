@@ -11,5 +11,5 @@ on:
 jobs:
   update-reusable-workflow:
     name: Update
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/update-component-workflows.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/update-component-workflows.yml@v1
     secrets: inherit

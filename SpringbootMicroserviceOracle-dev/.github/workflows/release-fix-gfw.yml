@@ -9,7 +9,7 @@ jobs:
   call-reusable-workflow:
     name: Release fix
     if: github.actor != 'gluon-app[bot]'
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/maven-release-tbd.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-release-tbd.yml@v1
     with:
       technology: 'Java_Maven'
     secrets: inherit

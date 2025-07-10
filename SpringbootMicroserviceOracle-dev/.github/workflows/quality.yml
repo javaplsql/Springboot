@@ -10,5 +10,5 @@ on:
 jobs:
   call-reusable-workflow:
     name: Quality
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/maven-quality.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-quality.yml@v1
     secrets: inherit

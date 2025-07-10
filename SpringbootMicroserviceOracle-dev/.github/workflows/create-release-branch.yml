@@ -20,7 +20,7 @@ on:
 jobs:
   create-release-branch:
     name: Create Release Branch
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/create-release-branch.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/create-release-branch.yml@v1
     with:
       tag: ${{ inputs.tag }}
       version: ${{ inputs.version }}

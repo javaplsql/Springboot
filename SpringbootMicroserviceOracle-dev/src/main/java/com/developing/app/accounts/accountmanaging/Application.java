@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement;
+package com.developing.app.accounts.accountmanaging;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 /**
  * The main class of the Spring applications.
  *
- * @author Santander Technology
+ * @author java Technology
  */
 @SpringBootApplication
 public class Application {

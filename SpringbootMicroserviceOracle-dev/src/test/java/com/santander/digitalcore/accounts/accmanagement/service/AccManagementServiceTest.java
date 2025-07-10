@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.service;
+package com.java.developing.accounts.accountmanaging.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -16,10 +16,13 @@ import java.util.Objects;
 
 import javax.sql.DataSource;
 
-import com.santander.digitalcore.accounts.accnumeratorlib.service.AccNumeratorService;
-import com.santander.digitalcore.accounts.accnumeratorlib.utils.Numeration;
-import com.santander.digitalcore.accounts.util.lib.db.model.entity.ContractCounterSantanderEntity;
-import com.santander.digitalcore.accounts.util.lib.db.model.repository.ContractCounterSantanderRepository;
+import com.developing.app.accounts.accountmanaging.service.UuidService;
+import com.developing.app.accounts.accountmanaging.service.accountmanagingService;
+import com.java.developing.accounts.accnumeratorlib.service.AccNumeratorService;
+import com.java.developing.accounts.accnumeratorlib.utils.Numeration;
+import com.java.developing.accounts.util.lib.db.model.entity.ContractCounterjavaEntity;
+import com.java.developing.accounts.util.lib.db.model.repository.ContractCounterjavaRepository;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,15 +31,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.santander.digitalcore.accounts.accmanagement.model.Center;
-import com.santander.digitalcore.accounts.accmanagement.model.Product;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
-import com.santander.digitalcore.accounts.accmanagement.repository.ContractIdentifiersRepositoryExt;
+import com.java.developing.accounts.accountmanaging.model.Center;
+import com.java.developing.accounts.accountmanaging.model.Product;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.request.GenerateAccountIdentifiersPostRequest;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
+import com.java.developing.accounts.accountmanaging.repository.ContractIdentifiersRepositoryExt;
 
-import com.santander.digitalcore.accounts.util.lib.db.model.entity.ContractIdentifiersEntity;
+import com.java.developing.accounts.util.lib.db.model.entity.ContractIdentifiersEntity;
 
-class AccManagementServiceTest {
+class accountmanagingServiceTest {
 
   @Mock
   private JdbcTemplate jdbcTemplate;
@@ -45,7 +48,7 @@ class AccManagementServiceTest {
   private ContractIdentifiersRepositoryExt contractIdentifiersRepository;
 
   @Mock
-  private ContractCounterSantanderRepository contractCounterSantanderRepository;
+  private ContractCounterjavaRepository contractCounterjavaRepository;
 
   @Mock
   private GenerateAccountIdentifiersPostRequest request;
@@ -60,7 +63,7 @@ class AccManagementServiceTest {
   private AccNumeratorService accNumeratorService;
 
   @InjectMocks
-  private AccManagementService accManagementService;
+  private accountmanagingService accountmanagingService;
 
   @BeforeEach
   void setUp() {
@@ -79,14 +82,14 @@ class AccManagementServiceTest {
     when(center.getCenterId()).thenReturn("1001");
 
     Connection mockConnection = mock(Connection.class);
-    ContractCounterSantanderEntity accountCounter = new ContractCounterSantanderEntity();
+    ContractCounterjavaEntity accountCounter = new ContractCounterjavaEntity();
     accountCounter.setContractId("00000000000000000001");
 
     when(jdbcTemplate.getDataSource()).thenReturn(mock(javax.sql.DataSource.class));
     when(Objects.requireNonNull(jdbcTemplate.getDataSource()).getConnection()).thenReturn(mockConnection);
     when(validRequest.getProduct().getProductCode()).thenReturn("1234567890");
     when(validRequest.getCenter().getCenterId()).thenReturn("1001");
-    when(contractCounterSantanderRepository.findByEntityAndCenter(anyString(), anyString(), eq(mockConnection)))
+    when(contractCounterjavaRepository.findByEntityAndCenter(anyString(), anyString(), eq(mockConnection)))
         .thenReturn(accountCounter);
     when(uuidService.generateUniqueContractId()).thenReturn("mockedUUID");
     when(numeration.generateBBAN(anyString(), anyString(), anyString())).thenReturn("mockedBBAN");
@@ -94,7 +97,7 @@ class AccManagementServiceTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    GenerateAccountIdentifiersPostResponse response = accManagementService.generateAccountIdentifiers(validRequest, entityHeader, brandHeader, preAssigmentContractIndicator);
+    GenerateAccountIdentifiersPostResponse response = accountmanagingService.generateAccountIdentifiers(validRequest, entityHeader, brandHeader, preAssigmentContractIndicator);
 
     assertNotNull(response);
     assertNotNull(response.getAccounIdentification());
@@ -125,7 +128,7 @@ class AccManagementServiceTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    Assertions.assertThrows(RuntimeException.class, () -> accManagementService.generateAccountIdentifiers(requestInsertFails, entityHeader, brandHeader, preAssigmentContractIndicator));
+    Assertions.assertThrows(RuntimeException.class, () -> accountmanagingService.generateAccountIdentifiers(requestInsertFails, entityHeader, brandHeader, preAssigmentContractIndicator));
     verify(mockConnection, times(1)).rollback();
   }
 
@@ -140,7 +143,7 @@ class AccManagementServiceTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    Assertions.assertThrows(NullPointerException.class, () -> accManagementService.generateAccountIdentifiers(requestNullConnection, entityHeader, brandHeader, preAssigmentContractIndicator));
+    Assertions.assertThrows(NullPointerException.class, () -> accountmanagingService.generateAccountIdentifiers(requestNullConnection, entityHeader, brandHeader, preAssigmentContractIndicator));
   }
 
   @Test
@@ -161,7 +164,7 @@ class AccManagementServiceTest {
     String entityHeader = "0049";
     String brandHeader = "brand-header-value";
     String preAssigmentContractIndicator = "Y";
-    Assertions.assertThrows(RuntimeException.class, () -> accManagementService.generateAccountIdentifiers(requestUuidFails, entityHeader, brandHeader, preAssigmentContractIndicator));
+    Assertions.assertThrows(RuntimeException.class, () -> accountmanagingService.generateAccountIdentifiers(requestUuidFails, entityHeader, brandHeader, preAssigmentContractIndicator));
     verify(mockConnection, times(1)).rollback();
   }
 }
