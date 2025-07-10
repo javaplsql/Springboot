@@ -1,43 +1,43 @@
-# Darwin Spring Boot sgt-ap11085-accmanagement Function
+# plsql Spring Boot fcm-app-accountmanaging Function
 
 ## Features
 
 ### Description
 
-Microservice sgt-ap11085-accmanagement generated from the Maven archetype for Darwin Spring Boot applications.
-The microservice sgt-ap11085-accmanagement implements an application of type Servlet, which exposes a handler, and basic endpoints to process GET requests. 
+Microservice fcm-app-accountmanaging generated from the Maven archetype for plsql Spring Boot applications.
+The microservice fcm-app-accountmanaging implements an application of type Servlet, which exposes a handler, and basic endpoints to process GET requests. 
 The application follows Hexagonal Architecture design principles, which aims to separate the core business logic from external dependecies and technologies. 
 The microservice archetype was adapated to hexagonal architecture by Mexico´s DCoE (Development Center of Excellence). 
 This architecture is composed of three main layers: Domain, Application and Infrastructure. The Domain layer contains the core business objects and logic of the application, the Application layer facilitates controlled interaction with the domain, and the Infrastructure layer isolates the application´s core from external technology or framework-specific code. This architecture ensures that the core business logic remains reusable and adaptable across different environments.
 
-The microservice sgt-ap11085-accmanagement, makes use of Darwin Spring Boot Starter Parent, so there is no need to worry about the version of the libraries it makes use of, or to provide a list of all available dependencies.
+The microservice fcm-app-accountmanaging, makes use of plsql Spring Boot Starter Parent, so there is no need to worry about the version of the libraries it makes use of, or to provide a list of all available dependencies.
 
 !!! note
 
-    For more information on how to generate a microservice from the Darwin archetype, please refer to the following link: [Darwin Spring Boot Archetype Microservice](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-archetypes/darwin-spring-boot-archetype-microservice/index.html)
+    For more information on how to generate a microservice from the plsql archetype, please refer to the following link: [plsql Spring Boot Archetype Microservice](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-archetypes/plsql-spring-boot-archetype-microservice/index.html)
 
 ### Dependency management
 
-The microservice sgt-ap11085-accmanagement makes use of the following Maven dependencies:
+The microservice fcm-app-accountmanaging makes use of the following Maven dependencies:
 
 * [Spring Cloud Config Client](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_client)
 * [Spring Web MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html)
 * [Springdoc-OpenAPI (Swagger)](https://springdoc.org/)
 * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
-* Spring HTTP Clients: [RestTemplate y WebClient](https://github.com/santander-group-shared-assets/gln-back-darwin-java-samples/tree/develop/webclient)
+* Spring HTTP Clients: [RestTemplate y WebClient](https://github.com/java-group-shared-assets/gln-back-plsql-java-samples/tree/develop/webclient)
 * [Oracle](https://www.oracle.com/database/)
 * [H2 Database](https://h2database.com/html/main.html)
 
-* Framework Darwin Spring Boot:
-- [Darwin Core](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-core/)
-- [Darwin Cache](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-cache/)
-- [Darwin Logging](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-logging/)
-- [Darwin Authentication](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-security-authentication/)
-- [Darwin OmniChannel](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-omnichannel/)
+* Framework plsql Spring Boot:
+- [plsql Core](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/)
+- [plsql Cache](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-cache/)
+- [plsql Logging](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-logging/)
+- [plsql Authentication](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-security-authentication/)
+- [plsql OmniChannel](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-omnichannel/)
 
 ## Project structure
 
-The microservice sgt-ap11085-accmanagement has the following structure:
+The microservice fcm-app-accountmanaging has the following structure:
 
 The `src/main/java` folder includes :
 
@@ -67,7 +67,7 @@ In addition, the microservice has:
 
 - An **application.yml** file together with an *application-local.properties* file with the [properties](#configuration-files).
   necessary to configure the project.
-- An **errors.properties** file for the [configuration of exceptions](https://gluon.dev.corp/microservices/docs/darwin-spring-boot/current/darwin-project/darwin-spring-boot-core/index.html#excepciones), and a subfolder errors with a Resource Bundle of configurations, for multi-language exceptions (in this case: Spanish (es_ES) and US English (en_US)).
+- An **errors.properties** file for the [configuration of exceptions](https://gluon.dev.corp/microservices/docs/plsql-spring-boot/current/plsql-project/plsql-spring-boot-core/index.html#excepciones), and a subfolder errors with a Resource Bundle of configurations, for multi-language exceptions (in this case: Spanish (es_ES) and US English (en_US)).
 - The **pom.xml** file, which contains all the information that Maven uses to manage dependencies, metadata, etc.
 - An **ApplicationTest.java** to test that the functionality of the application works correctly. 
 Also the corresponding tests for generated classes. Input ports, input adapters, output adapters include their respective units test in the src/test/java folder, An **application-local.properties** for testing with H2 Database has also been added.
@@ -86,15 +86,15 @@ This file contains the following properties of architecture components:
 
 | Property                                                | Description                                                                                                                                                                                                                             | Required                          | Value                                       | Environment |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|---------------------------------------------|-------------|
-| *darwin.app-key*                                        | Indicates the application key.Within the monitoring system it will be part of the index name.                                                                                                                                           | Yes                               | _acronym-app_                               | Any         |
-| *darwin.logging.paas-app-version*                       | Artifact version. To have it automatically populated when generating the artefact, we must indicate "@project.version@" as the value and tell Maven to process the resources so that it replaces the string with the corresponding value. | Yes                               | @project.version@                           | Any         |
-| *darwin.logging.entity*                                 | Indicates the country.                                                                                                                                                                                                                  | No                                | ESP                                         | Any         |
-| *darwin.core.exceptions.error-format*                   | Configures the microservice's error model to be DARWIN format or GLUON format                                                                                                                                                           | No                                | GLUON                                       | Any         |
-| *darwin.security.connectors.pkm-connector.pkm-endpoint* | Public key manager endpoint                                                                                                                                                                                                             | Yes                               | ${env.pkm-endpoint}                         | Any         |
+| *plsql.app-key*                                        | Indicates the application key.Within the monitoring system it will be part of the index name.                                                                                                                                           | Yes                               | _acronym-app_                               | Any         |
+| *plsql.logging.paas-app-version*                       | Artifact version. To have it automatically populated when generating the artefact, we must indicate "@project.version@" as the value and tell Maven to process the resources so that it replaces the string with the corresponding value. | Yes                               | @project.version@                           | Any         |
+| *plsql.logging.entity*                                 | Indicates the country.                                                                                                                                                                                                                  | No                                | ESP                                         | Any         |
+| *plsql.core.exceptions.error-format*                   | Configures the microservice's error model to be plsql format or GLUON format                                                                                                                                                           | No                                | GLUON                                       | Any         |
+| *plsql.security.connectors.pkm-connector.pkm-endpoint* | Public key manager endpoint                                                                                                                                                                                                             | Yes                               | ${env.pkm-endpoint}                         | Any         |
 | *spring.session.store-type*                             | Determines where Spring Session Saving is implemented. Defaults to the classPath if only one module is present there. Set to none, disables Spring Session.                                                                             | Yes                               | none                                        | Any     |    
 | *spring.cache.type* | Configure the type of cache. | Yes | caffeine | Any |
 | *spring.cache.caffeine.spec*                            | Cache settings.                                                                                                                                                                                                                         | Yes                               | expireAfterWrite=10m                        | Any         |
-| *logging.level.com.santander.sgt.ap11085.sgtap11085accmanagement*                              | Configure the level of detail of the logs in com.santander.sgt.ap11085.sgtap11085accmanagement                                                                                                                                                                                 | Yes                               | INFO                                        | Any         |
+| *logging.level.com.java.fcm.app.fcmappaccountmanaging*                              | Configure the level of detail of the logs in com.java.fcm.app.fcmappaccountmanaging                                                                                                                                                                                 | Yes                               | INFO                                        | Any         |
 | *logging.level.root*                                    | Configure the level of detail of the logs at root level.                                                                                                                                                                                | Yes                               | ERROR                                       | Any         |
 | *management.endpoint.health.show-details*               | Determines to whom the -health endpoint details are shown. Configured 'when-authorized' only shows the details to authorized users, which can be configured by using the _management.endpoint.health.roles_.                            | Yes                               | ALWAYS                                      | Any         | 
 | *health.config.enabled*                                 | Enable the health indicator.                                                                                                                                                                                                            | Yes                               | false                                       | Any         |
@@ -107,7 +107,7 @@ This file contains the following properties of architecture components:
 
 Among others, this file allows the definition of properties to be able to identify the application. By default, it points to the "boae" *region* and the active profile is the *local* one. To identify the application in the monitoring systems too, *entity* property are set by default with "ESP" value.
 
-	darwin:
+	plsql:
 	    region: boae
 	    suffix:
 	    logging:
@@ -124,7 +124,7 @@ Among others, this file allows the definition of properties to be able to identi
 ### _application-local.properties_
 
 Auxiliary file with properties associated with the environment (in this case for a local environment).
-It has a property called `darwin.logging.console-log-format` that allows to change the technical console log format.
+It has a property called `plsql.logging.console-log-format` that allows to change the technical console log format.
 By default is set to the value 'HUMAN_READABLE' to show the Console Technical Log Pattern but it can be changed to 'JSON' to show the Technical Log Pattern instead.
 It has the PKM and STS properties of the security library.
 In case of working on another profile, it will be necessary to create another properties file for the particular profile.
@@ -183,7 +183,7 @@ To configure the plugin, it is also necessary to point to the target packages wh
 
     <!-- Arsenal JPA Code Generator for Database Entities and Repositories -->
 			<plugin>
-				<groupId>com.santander.ars</groupId>
+				<groupId>com.java.ars</groupId>
 				<artifactId>gln-back-arsenal-jpa-codegen-maven-plugin</artifactId>
 				<executions>
 					<execution>
@@ -195,8 +195,8 @@ To configure the plugin, it is also necessary to point to the target packages wh
 				</executions>
 				<configuration>
 					<sqlScript>${project.basedir}\src\main\resources\schema.sql</sqlScript>          <!--(1)-->
-					<entityPackage>com.santander.sgt.ap11085.sgtap11085accmanagement.entity</entityPackage>                                 <!--(2)-->
-					<repositoryPackage>com.santander.sgt.ap11085.sgtap11085accmanagement.repository</repositoryPackage>                     <!--(3)-->
+					<entityPackage>com.java.fcm.app.fcmappaccountmanaging.entity</entityPackage>                                 <!--(2)-->
+					<repositoryPackage>com.java.fcm.app.fcmappaccountmanaging.repository</repositoryPackage>                     <!--(3)-->
 					<fileOverride>false</fileOverride> <!-- This property is false by default -->
 				</configuration>
 			</plugin>
@@ -215,7 +215,7 @@ If you need more information, you can find everything you need about this plugin
 ## Spring Actuator: Liveness and Readiness.
 
 Spring's actuators provide a set of HTTP/JMX endpoints that expose operational information about our microservice.
-Darwin makes use of the '/actuator/health/liveness' and '/actuator/health/readiness' actuator endpoints to manage the Liveness and Readiness probes of a microservice.
+plsql makes use of the '/actuator/health/liveness' and '/actuator/health/readiness' actuator endpoints to manage the Liveness and Readiness probes of a microservice.
 
 - Liveness probe: Provides information that lets us know if the microservice is alive or dead.
 - Readiness probe: Provides information that lets us know if the microservice is ready to receive traffic.
@@ -291,8 +291,8 @@ This class has the tags:
 
 * `@SpringBootApplication` which indicates that it is a Spring boot application and causes it to activate.
   the Scan component and the autoconfigurations.
-* `@EnableCaching` which enables the use of the cache in the application, managed by the darwin-spring-boot-cache library.
-* `@Slf4j` generates a logger, and then the darwin-spring-boot-logging library connects to it.
+* `@EnableCaching` which enables the use of the cache in the application, managed by the plsql-spring-boot-cache library.
+* `@Slf4j` generates a logger, and then the plsql-spring-boot-logging library connects to it.
 
 To run the application, we go to the project directory and execute the following command:
 
@@ -305,7 +305,7 @@ Also, it is possible to run the application using the test profile with the 'App
 When you run it, you will see the following log:
 
 
-    :: Spring Boot  (v2.6.11.RELEASE) ::                                                                  :: DARWIN (v3.1.2-RELEASE) ::
+    :: Spring Boot  (v2.6.11.RELEASE) ::                                                                  :: plsql (v3.1.2-RELEASE) ::
 
     2021-07-08 12:59:08.558  INFO 3836 --- [           main] e.s.m.a.Application                      : The following profiles are active: local
     2021-07-08 12:59:26.590  INFO 3836 --- [           main] e.s.m.a.Application                      : Started Application in 22.826 seconds (JVM running for 24.724)
@@ -314,11 +314,11 @@ and the application would be up.
 
 The microservice has a controller, which is the highest level layer for exposing our REST microservice.
 This is defined in the `HelloControler` class.
-To call the controller we use the `/sgt-ap11085-accmanagement/hello` endpoint indicated in the `@RequestMapping` tag.
+To call the controller we use the `/fcm-app-accountmanaging/hello` endpoint indicated in the `@RequestMapping` tag.
 
 By executing the following command:
 
-    curl -X GET "http://localhost:8080/sgt-ap11085-accmanagement/hello"
+    curl -X GET "http://localhost:8080/fcm-app-accountmanaging/hello"
 
 We will get a response like this:
 
@@ -338,21 +338,21 @@ Or an incorrect one in case of no authorization.
 	}
 
 To call the different endpoints related with the Database implemented, it is possible to use `DatabaseController` class.
-To call the controller for adding an User we use the `/sgt-ap11085-accmanagement/databases/create-user/{name}/{mail}` endpoint indicated in the `@RequestMapping` tag, modifying the name and mail strings
+To call the controller for adding an User we use the `/fcm-app-accountmanaging/databases/create-user/{name}/{mail}` endpoint indicated in the `@RequestMapping` tag, modifying the name and mail strings
 
 By executing the following command:
 
-    curl -X GET "http://localhost:8080/sgt-ap11085-accmanagement/databases/create-user/my-name/my-mail"
+    curl -X GET "http://localhost:8080/fcm-app-accountmanaging/databases/create-user/my-name/my-mail"
 
 We will get a response like this:
 
     {"id":3,"userName":"my-name","email":"my-mail"}
 
-To call the controller for retrieving an User we use the `/sgt-ap11085-accmanagement/databases/retrieve-user/{id}` endpoint indicated in the `@RequestMapping` tag, modifying the id by the corresponding Id
+To call the controller for retrieving an User we use the `/fcm-app-accountmanaging/databases/retrieve-user/{id}` endpoint indicated in the `@RequestMapping` tag, modifying the id by the corresponding Id
 
 By executing the following command:
 
-    curl -X GET "http://localhost:8080/sgt-ap11085-accmanagement/databases/retrieve-user/3"
+    curl -X GET "http://localhost:8080/fcm-app-accountmanaging/databases/retrieve-user/3"
 
 We will get a response like this:
 
@@ -361,7 +361,7 @@ We will get a response like this:
 
 ## Testing the application
 
-The sgt-ap11085-accmanagement microservice has a series of tests included in the src/test/java folder:
+The fcm-app-accountmanaging microservice has a series of tests included in the src/test/java folder:
 
 * **ApplicationTest** : Checks that the Spring context, is loaded correctly.
 
@@ -409,9 +409,9 @@ On the other hand, to consult the API documentation in yml format, access the en
 
 !!! note
 
-    For more information about the OpenApi documentation, see the following link: [API documentation with Springdoc](https://github.com/santander-group-shared-assets/gln-back-darwin-java-samples/tree/develop/openapi-springdoc)
+    For more information about the OpenApi documentation, see the following link: [API documentation with Springdoc](https://github.com/java-group-shared-assets/gln-back-plsql-java-samples/tree/develop/openapi-springdoc)
 
 ## Support
 
- - In case you detect any issue associated with the Darwin framework, please open an issue through the support channel: [Report Issue](https://github.com/santander-group-gluon/gln-adoption-entities/issues)
+ - In case you detect any issue associated with the plsql framework, please open an issue through the support channel: [Report Issue](https://github.com/java-group-gluon/gln-adoption-entities/issues)
  - In case you detect any issue on a Spain based project, please sign up on this support channel and open an issue: [Report Issue - Spain based project](https://sanes.atlassian.net/jira/software/c/projects/ESPARQSOP/boards/480)

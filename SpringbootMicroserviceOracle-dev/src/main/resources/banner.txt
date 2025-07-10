@@ -11,4 +11,4 @@
   %%%%%%%%%%%%%%%%%%%%%%%%       %%      %%   %%    %%    %%%    %%    %%%    %%    %%    %%%    %%   %%%     %%    %%%         %%
      %%%%%%%%%%%%%%%%%%           %%%%%%%%     %%%% %%%  %%%%% %%%%%%   %%%%   %%%% %%%  %%%%% %%%%%%   %%%%% %%%    %%%%%%   %%%%%%
 
-:: Spring Boot ${spring-boot.formatted-version} ::                                                                  :: DARWIN (v@project.parent.version@) ::
+:: Spring Boot ${spring-boot.formatted-version} ::                                                                  :: plsql (v@project.parent.version@) ::

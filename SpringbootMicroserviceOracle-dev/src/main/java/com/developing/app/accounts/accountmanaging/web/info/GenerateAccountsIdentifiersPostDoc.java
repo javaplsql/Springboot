@@ -1,12 +1,12 @@
-package com.santander.digitalcore.accounts.accmanagement.web.info;
+package com.developing.app.accounts.accountmanaging.web.info;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.santander.digitalcore.accounts.accmanagement.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
-import com.santander.digitalcore.accounts.util.lib.core.error.custom.CustomGluonErrorModel;
+import com.java.developing.accounts.accountmanaging.model.genaccidentifiers.response.GenerateAccountIdentifiersPostResponse;
+import com.java.developing.accounts.util.lib.core.error.custom.CustomGluonErrorModel;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

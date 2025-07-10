@@ -10,5 +10,5 @@ on:
 jobs:
   call-reusable-workflow:
     name: Security
-    uses: santander-group-shared-assets/gln-workflows/.github/workflows/maven-security-image.yml@v1
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-security-image.yml@v1
     secrets: inherit

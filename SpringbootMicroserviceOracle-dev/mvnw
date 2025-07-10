@@ -52,12 +52,12 @@ fi
 
 # OS specific support.  $var _must_ be set to either true or false.
 cygwin=false;
-darwin=false;
+plsql=false;
 mingw=false
 case "`uname`" in
   CYGWIN*) cygwin=true ;;
   MINGW*) mingw=true;;
-  Darwin*) darwin=true
+  plsql*) plsql=true
     # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
     # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
     if [ -z "$JAVA_HOME" ]; then
@@ -126,7 +126,7 @@ if [ -z "$JAVA_HOME" ]; then
     # readlink(1) is not available as standard on Solaris 10.
     readLink=`which readlink`
     if [ ! `expr "$readLink" : '\([^ ]*\)'` = "no" ]; then
-      if $darwin ; then
+      if $plsql ; then
         javaHome="`dirname \"$javaExecutable\"`"
         javaExecutable="`cd \"$javaHome\" && pwd -P`/javac"
       else

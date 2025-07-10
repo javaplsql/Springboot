@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.config;
+package com.java.developing.accounts.accountmanaging.config;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,6 +7,8 @@ import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
+import com.developing.app.accounts.accountmanaging.config.OpenApiCustomiserIml;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -30,12 +32,12 @@ class OpenApiCustomiserImlTest {
     when(mockOpenAPI.getComponents()).thenReturn(new io.swagger.v3.oas.models.Components());
     openApiCustomiser.customise(mockOpenAPI);
 
-    Parameter clientIdHeader = mockOpenAPI.getComponents().getParameters().get("x-santander-client-id");
+    Parameter clientIdHeader = mockOpenAPI.getComponents().getParameters().get("x-java-client-id");
     Parameter acceptLanguageHeader = mockOpenAPI.getComponents().getParameters().get("accept-language");
 
     assertNotNull(clientIdHeader);
     assertTrue(clientIdHeader.getRequired());
-    assertEquals("x-santander-client-id", clientIdHeader.getName());
+    assertEquals("x-java-client-id", clientIdHeader.getName());
 
     assertNotNull(acceptLanguageHeader);
     assertFalse(acceptLanguageHeader.getRequired());
@@ -53,7 +55,7 @@ class OpenApiCustomiserImlTest {
     mockOpenAPI.getPaths().values().forEach(pathItem ->
         pathItem.readOperations().forEach(operation -> {
           assertTrue(operation.getParameters().stream()
-              .anyMatch(param -> "#/components/parameters/x-santander-client-id".equals(param.get$ref())));
+              .anyMatch(param -> "#/components/parameters/x-java-client-id".equals(param.get$ref())));
           assertTrue(operation.getParameters().stream()
               .anyMatch(param -> "#/components/parameters/accept-language".equals(param.get$ref())));
         })

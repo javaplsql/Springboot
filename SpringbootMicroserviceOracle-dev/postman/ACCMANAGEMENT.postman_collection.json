@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "e28f3d96-00fd-4c06-8ce1-f9c71a63fed3",
-    "name": "ACCMANAGEMENT-COLLECTION",
+    "name": "accountmanaging-COLLECTION",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -25,7 +25,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -38,14 +38,14 @@
           "raw": "{  \"center\": {\n    \"centerId\": \"1001\"\n  },\n  \"product\": {\n    \"productCode\": \"0049300130\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -74,7 +74,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -87,14 +87,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": \"1001\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -123,7 +123,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -136,14 +136,14 @@
           "raw": "{  \n  \"product\": {\n    \"productCode\": \"0049300130\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -172,7 +172,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -185,14 +185,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": \"1001\"\n  }\n,\n  \"product\": {\n    \"productCode\": null\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -221,7 +221,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -234,14 +234,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": null\n  }\n,\n  \"product\": {\n    \"productCode\": \"0049300130\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -270,7 +270,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -283,14 +283,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": \"1001\"\n  }\n,\n  \"product\": {\n    \"productCode\": \"\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -319,7 +319,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -332,14 +332,14 @@
           "raw": "{  \"center\": {\n    \"centerId\": \"\"\n  },\n  \"product\": {\n    \"productCode\": \"0049300130\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -368,7 +368,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -381,14 +381,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": \"1001\"\n  }\n,\n  \"product\": {\n    \"productCode\": \"ASDF00\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -417,7 +417,7 @@
             "value": "application/json"
           },
           {
-            "key": "x-santander-client-id",
+            "key": "x-java-client-id",
             "value": "ACCOU1"
           },
           {
@@ -430,14 +430,14 @@
           "raw": "{\n  \"center\": {\n    \"centerId\": \"ASDF00\"\n  }\n,\n  \"product\": {\n    \"productCode\": \"0049300130\"\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:8080/accmanagement/v5/accounts/generate_account_identifiers",
+          "raw": "http://localhost:8080/accountmanaging/v5/accounts/generate_account_identifiers",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "accmanagement",
+            "accountmanaging",
             "v5",
             "accounts",
             "generate_account_identifiers"
@@ -554,7 +554,7 @@
     },
     {
       "key": "private_key_intra",
-      "value": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC9pRNfDV9BQ1D1\nVHN1UuGEhOlxebPabnKe7W2J/h+fnPhwO6xzaBBItiPVBHomTcQwQN5PV6SoVogA\nmJDT2sG8m1R1foz2R2wNmPieN41/iyvJnQCuTFkXDKQD0ZZwQPvA0Utn1OZgPBud\nuSe5H7i/iHJ7pdBnzAoyCY7R5YXlYfd0bjofMAl8nzDVct+v/Rd3hu6LgjIJvaT4\n5Ci1sDx/VZaWgiFJ797upUrtqDGw2WboMK+oHRMo1lRhmEaI6u5imVpI6pDAbb4l\ngXTxVq1GGPZkDAhc40YFf0I2iJkfToXGFlL63iYXCEfLcH/yBqN4Zlp93AJFvLN+\nPZfGImbnAgMBAAECggEBAKCcADbc7VIpP5Q2DH5NTf7cTZQz3PTd2ybrr3xRgti7\nqM/sSdWHSVs7HkeWvhhYfhHbrisF78Y9WnseunEhcDhaWIIVRi6BOGqfpdbg924Q\nIGpkFCKJOF5D71folX7GGjAnULRD40OXRFAkchbfXaigV0yOllyBuhS8cX8j4mzr\nQGtUBNk8N78N/hJAlv5FYMWw7hOmXNid3+Y1PmNWLklLc0L5rf8/Pax+JMNU8ttt\ncPErS7XMe8i8AzOG06OmJb/HHg2zSib7PpTeSq3kHquorCrUUyshxPbgBwvP/JPY\n4VoARMAAr8MVKyAzmDjceE+UUSYZkjSukw7wftoiDPECgYEA53mpaEGQUlhROLcy\n+Mf1M8Ks022qTCnrZ9JdnUE65f7XSPzVNN8IOaJF6GNTS6GtyjO8UkDNSsd5cd5O\nNzDhr9SqK8a1aziLmNg/fzvFAI6hrc3vKa8V8hccYzKScK5HFfjBN1obqGTUoqOa\nJUiWoxhVI0WIZCtTrv8LjjsBsF8CgYEA0bzXWfiErYToOEsf9v/iXiHQ2ZhkTiMJ\n22Lu2u63NEV5i5Mcw6PZFuW/lEX1lCWFP0FvWN+wVwHm1OiToFmLmznz+FeEwuO5\nEey7DzqGpNgpUlIdc3UzDZb1euelZyW5ugnio7IwFiGTqOUAN/cvVwcKh26EwZzS\nOg2hxKQeNnkCgYBF56gRpDtBowpkZm8uUrTqfNBUybm0ZrSBFjbPVvPCocPCdxis\nbu68+RTDqbtuC9XASv+El61n9/XlPY3BfTGrOD5sGgaP6vO9pREIC7TjBjAtnROt\nMwMdqX0ZOByhiwBM0mMHpF7V7B2LQH085T8Y4jBUBpu6JJuRLdT/jzJjYQKBgF8Z\nlTwCZ4aWQQVlavUASZANHTnM045qbMnBLjSvEPrulZIn/l7nKEQtoJSGtDecW7K2\n5NoTc03AWv4nBukqMRcNTAZLCLOltgDeqmLZUrvkF7hv61KyzZdX367+4gzHGlO0\nr8MxxIQEbYOjclnuBtUbKDcIccGobdpM3BDhqaFhAoGBAORV57BLvHlqRTL9Nffm\nlHxy8nJS/xkBUTdUcbbvGUeRDMbuWw/j+zpDs2M6ZAPg6GcGU9bTR4zC+vjKgaRu\npexLmikFEChdumW8lVZBm/vfCXsTam2BVE8nNsGrYknT93UqFf+/3IlSgfZYpeqg\nZNNy6vrDwSN/E+kF+TkT6rWD\n-----END PRIVATE KEY-----",
+      "value": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC9pRNfDV9BQ1D1\nVHN1UuGEhOlxebPabnKe7W2J/h+fnPhwO6xzaBBItiPVBHomTcQwQN5PV6SoVogA\nmJDT2sG8m1R1foz2R2wNmPieN41/iyvJnQCuTFkXDKQD0ZZwQPvA0Utn1OZgPBud\nuSe5H7i/iHJ7pdBnzAoyCY7R5YXlYfd0bjofMAl8nzDVct+v/Rd3hu6LgjIJvaT4\n5Ci1sDx/VZaWgiFJ797upUrtqDGw2WboMK+oHRMo1lRhmEaI6u5imVpI6pDAbb4l\ngXTxVq1GGPZkDAhc40YFf0I2iJkfToXGFlL63iYXCEfLcH/yBqN4Zlp93AJFvLN+\nPZfGImbnAgMBAAECggEBAKCcADbc7VIpP5Q2DH5NTf7cTZQz3PTd2ybrr3xRgti7\nqM/sSdWHSVs7HkeWvhhYfhHbrisF78Y9WnseunEhcDhaWIIVRi6BOGqfpdbg924Q\nIGpkFCKJOF5D71folX7GGjAnULRD40OXRFAkchbfXaigV0yOllyBuhS8cX8j4mzr\nQGtUBNk8N78N/hJAlv5FYMWw7hOmXNid3+Y1PmNWLklLc0L5rf8/Pax+JMNU8ttt\ncPErS7XMe8i8AzOG06OmJb/HHg2zSib7PpTeSq3kHquorCrUUyshxPbgBwvP/JPY\n4VoARMAAr8MVKyAzmDjceE+UUSYZkjSukw7wftoiDPECgYEA53mpaEGQUlhROLcy\n+Mf1M8Ks022qTCnrZ9JdnUE65f7XSPzVNN8IOaJF6GNTS6GtyjO8UkDNSsd5cd5O\nNzDhr9SqK8a1aziLmNg/fzvFAI6hrc3vKa8V8hccYzKScK5HFfjBN1obqGTUoqOa\nJUiWoxhVI0WIZCtTrv8LjjsBsF8CgYEA0bzXWfiErYToOEsf9v/iXiHQ2ZhkTiMJ\n22Lu2u63NEV5i5Mcw6PZFuW/lEX1lCWFP0FvWN+wVwHm1OiToFmLmznz+FeEwuO5\nEey7DzqGpNgpUlIdc3UzDZb1euelZyW5ugnio7IwFiGTqOUAN/cvVwcKh26EwZzS\nOg2hxKQeNnkCgYBF56gRpDtBowpkZm8uUrTqfNBUybm0ZrSBFjbPVvPCocPCdxis\nbu68+RTDqbtuC9XASv+El61n9/XlPY3BfTGrOD5sGgaP6vO9pREIC7TjBjAtnROt\nMwMdqX0ZOByhiwBM0mMHpF7V7B2LQH085T8Y4jBUBpu6JJuRLdT/jzJjYQKBgF8Z\nlTwCZ4aWQQVlavUASZANHTnM045qbMnBLjSvEPrulZIn/l7nKEQtoJfcmDecW7K2\n5NoTc03AWv4nBukqMRcNTAZLCLOltgDeqmLZUrvkF7hv61KyzZdX367+4gzHGlO0\nr8MxxIQEbYOjclnuBtUbKDcIccGobdpM3BDhqaFhAoGBAORV57BLvHlqRTL9Nffm\nlHxy8nJS/xkBUTdUcbbvGUeRDMbuWw/j+zpDs2M6ZAPg6GcGU9bTR4zC+vjKgaRu\npexLmikFEChdumW8lVZBm/vfCXsTam2BVE8nNsGrYknT93UqFf+/3IlSgfZYpeqg\nZNNy6vrDwSN/E+kF+TkT6rWD\n-----END PRIVATE KEY-----",
       "type": "default"
     },
     {

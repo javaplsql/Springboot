@@ -1,4 +1,4 @@
-package com.santander.digitalcore.accounts.accmanagement.config;
+package com.developing.app.accounts.accountmanaging.config;
 
 import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springdoc.core.models.GroupedOpenApi;
@@ -20,7 +20,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
  * with Non production
  * profile.
  *
- * @author Santander Technology
+ * @author java Technology
  */
 /*
  * This class may need manual changes.
@@ -41,7 +41,7 @@ public class SwaggerConfig {
   @Bean
   public GroupedOpenApi api() {
     return GroupedOpenApi.builder().group("api-web")
-        .packagesToScan("com.santander.digitalcore.accounts.accmanagement.web")
+        .packagesToScan("com.java.developing.accounts.accountmanaging.web")
         .addOpenApiCustomizer(this.customerGlobalHeaderOpenApiCustomiser()).build();
   }
 
@@ -52,8 +52,8 @@ public class SwaggerConfig {
    * @return OpenAPI
    */
   @Bean
-  public OpenAPI apiInfo(@Value("${darwin.logging.paas-app-version}") String appVersion) {
-    return new OpenAPI().info(new Info().title("accmanagement")
+  public OpenAPI apiInfo(@Value("${plsql.logging.paas-app-version}") String appVersion) {
+    return new OpenAPI().info(new Info().title("accountmanaging")
             .description("""
                 This API manages a physical or business customer's accounts.\
                 The API can be used for:\

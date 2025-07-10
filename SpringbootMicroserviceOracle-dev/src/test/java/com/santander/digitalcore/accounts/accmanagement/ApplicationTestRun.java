@@ -1,7 +1,9 @@
-package com.santander.digitalcore.accounts.accmanagement;
+package com.java.developing.accounts.accountmanaging;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.TestConfiguration;
+
+import com.developing.app.accounts.accountmanaging.Application;
 
 
 /*

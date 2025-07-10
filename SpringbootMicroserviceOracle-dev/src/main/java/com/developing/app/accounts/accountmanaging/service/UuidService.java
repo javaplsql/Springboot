@@ -1,7 +1,7 @@
-package com.santander.digitalcore.accounts.accmanagement.service;
+package com.developing.app.accounts.accountmanaging.service;
 
-import com.santander.digitalcore.accounts.accmanagement.repository.ContractIdentifiersRepositoryExt;
-import com.santander.digitalcore.accounts.util.lib.db.utils.UtilLeanCoreRepository;
+import com.java.developing.accounts.accountmanaging.repository.ContractIdentifiersRepositoryExt;
+import com.java.developing.accounts.util.lib.db.utils.UtilLeanCoreRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;

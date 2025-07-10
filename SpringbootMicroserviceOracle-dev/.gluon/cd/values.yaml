@@ -1,4 +1,4 @@
-# Default values for darwin micro-java chart.
+# Default values for plsql micro-java chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -22,15 +22,15 @@ podLabels: {}
 ##
 podAnnotations: {}
 
-## Darwin Micro Service image version
-## @param image.registry darwin micro image registry
-## @param image.repository darwin micro image name
-## @param image.tag darwin micro image tag
-## @param image.digest darwin micro image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
-# Here is an example file for deploying a Darwin micro-service with the micro-java helm chart.
+## plsql Micro Service image version
+## @param image.registry plsql micro image registry
+## @param image.repository plsql micro image name
+## @param image.tag plsql micro image tag
+## @param image.digest plsql micro image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
+# Here is an example file for deploying a plsql micro-service with the micro-java helm chart.
 # It is necessary to reference this file in the deployment.yaml
 # Documentation of all available parameters can be found at
-#   https://gluon.gs.corp/community/docs/latest/capabilities/darwin/darwin-java/current/darwin-helm/
+#   https://gluon.gs.corp/community/docs/latest/capabilities/plsql/plsql-java/current/plsql-helm/
 # This example has the minimum necessary parameters to be able to perform the deployment.
 # Please update the values with the correct ones for your project.
 image:
@@ -44,7 +44,7 @@ image:
   ## Use ${TAG_VERSION} for the value will use the same version of pom.xml.
   tag: ${TAG_VERSION}
   digest: ""
-  ## @param image.pullPolicy darwin micro image pull policy
+  ## @param image.pullPolicy plsql micro image pull policy
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -65,10 +65,10 @@ lifecycle: {}
 ##
 terminationGracePeriodSeconds: 300
 
-## Darwin Micro Service pods' Security Context
+## plsql Micro Service pods' Security Context
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
 ## @param podSecurityContext.enabled Enable security context for the pods
-## @param podSecurityContext.fsGroup Set Darwin Micro Service pod's Security Context fsGroup
+## @param podSecurityContext.fsGroup Set plsql Micro Service pod's Security Context fsGroup
 ## e.g:
 ##   podSecurityContext:
 ##     enabled: true
@@ -77,11 +77,11 @@ terminationGracePeriodSeconds: 300
 podSecurityContext:
   enabled: false
 
-## Darwin Micro Service containers' Security Context
+## plsql Micro Service containers' Security Context
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
-## @param containerSecurityContext.enabled Enable Darwin Micro Service containers' Security Context
-## @param containerSecurityContext.runAsUser Set Darwin Micro Service containers' Security Context runAsUser
-## @param containerSecurityContext.runAsNonRoot Set Darwin Micro Service containers' Security Context runAsNonRoot
+## @param containerSecurityContext.enabled Enable plsql Micro Service containers' Security Context
+## @param containerSecurityContext.runAsUser Set plsql Micro Service containers' Security Context runAsUser
+## @param containerSecurityContext.runAsNonRoot Set plsql Micro Service containers' Security Context runAsNonRoot
 ## @param containerSecurityContext.allowPrivilegeEscalation Force the child process to be run as nonprivilege
 ## e.g:
 ##   containerSecurityContext:
@@ -93,7 +93,7 @@ podSecurityContext:
 containerSecurityContext:
   enabled: false
 
-## Darwin Micro Service pods' Node Selector
+## plsql Micro Service pods' Node Selector
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
 ## @param podNodeSelector.enabled Enable node selection for the pods
 ## @param podNodeSelector.{labelName1} Node label name1 and value1
@@ -124,7 +124,7 @@ containerPorts:
 ##
 extraContainerPorts: []
 
-## darwin microservices containers resource requests and limits
+## plsql microservices containers resource requests and limits
 ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
 ## @param resources.limits [object] The resources limits for the etcd container
 ## @param resources.requests [object] The requested resources for the etcd container
@@ -201,13 +201,13 @@ customReadinessProbe: {}
 ## For example:
 ##  - name: BEARER_AUTH
 ##    value: true
-##  - name: DARWIN_CM_KEY
+##  - name: plsql_CM_KEY
 ##    valueFrom:
 ##      configMapKeyRef:
 ##        name: "cm4"
 ##        key: LOGGING_ROOT_LEVEL
 ##        optional: false
-##  - name: DARWIN_SECRET_KEY
+##  - name: plsql_SECRET_KEY
 ##    valueFrom:
 ##      secretKeyRef:
 ##        name: "datagrid-app"
@@ -215,9 +215,9 @@ customReadinessProbe: {}
 ##        optional: false
 ##
 extraEnvVars:
-  - name: DARWIN_LOGGING_LOGLEVEL_ROOT
+  - name: plsql_LOGGING_LOGLEVEL_ROOT
     value: INFO
-  - name: DARWIN_LOGGING_LOGLEVEL_PRODUCT
+  - name: plsql_LOGGING_LOGLEVEL_PRODUCT
     value: INFO
   - name: ORACLE_ENV_ACCMNMT_URL
     valueFrom:
@@ -334,23 +334,23 @@ ssl:
   ##
   truststorePassword: ""
 
-## @section Darwin configuration
+## @section plsql configuration
 
-## Darwin Framework parameters
+## plsql Framework parameters
 ##
-darwin:
-  ## @param darwin.gitRepo. Git repository with the source code of the microservice.
-  ## Example value: `https://github.alm.europe.cloudcenter.corp/sanes-darwin-poc/poc-certificates.git`
+plsql:
+  ## @param plsql.gitRepo. Git repository with the source code of the microservice.
+  ## Example value: `https://github.alm.europe.cloudcenter.corp/sanes-plsql-poc/poc-certificates.git`
   gitRepo: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
-  ## @param darwin.region. Cluster identifier.
+  ## @param plsql.region. Cluster identifier.
   ## Possible values: `""`, `bo1`, `bo2`, `weu1.az` or `weu2.az`
   region: my-deploy-region
-  ## @param darwin.sufix. Suffix to blue green deployments. 
+  ## @param plsql.sufix. Suffix to blue green deployments. 
   ## Possible values: `""`, `-b` or `-g`  
   suffix: ""
   logging_level_root: INFO
   tz: Europe/Madrid
-  ## @param darwin.configType Allows to set the configuration from ConfigMap or Configuration Service
+  ## @param plsql.configType Allows to set the configuration from ConfigMap or Configuration Service
   ## It indicates the location from which the configuration is retrieved.
   ## Four possible values are allowed:
   ##  - "cm" creates a Kubernetes ConfigMap with the name cm-{app_name}. It will be mounted.
@@ -359,10 +359,10 @@ darwin:
   ##     secret-{app_name}. They will be mounted.
   ##  - "configserver" to use Spring Cloud Configuration Server.
   configType: cm
-  ## @param darwin.technologyVersion. JRE version of the image.
+  ## @param plsql.technologyVersion. JRE version of the image.
   ## Possible values: `11`, `17`, `21`, or `native`
   technologyVersion: 17
-  ## @param darwin.version. Darwin Framework Version.
+  ## @param plsql.version. plsql Framework Version.
   ## Examples values: `3.0.1-RELEASE`, `3.1.0-RELEASE`, `3.2.0-RELEASE`
   version: 6.2.1
   ## Literal file and internalization configuration
@@ -380,8 +380,8 @@ darwin:
     cloud_config:
       failfast: true
       # Values to connect with Configuration Service
-      uri_http: http://configuration-service${darwin.suffix}:8080
-      uri_https: https://configuration-service${darwin.suffix}.${PROJECT_NAME}.svc.cluster.local:8443
+      uri_http: http://configuration-service${plsql.suffix}:8080
+      uri_https: https://configuration-service${plsql.suffix}.${PROJECT_NAME}.svc.cluster.local:8443
       username:
       password:
       retry:

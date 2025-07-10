@@ -1,6 +1,6 @@
 # Default configuration for native microservicies
 
-darwin:
+plsql:
   java:
     opts_ext: "-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8 -XX:ActiveProcessorCount=2"
 
