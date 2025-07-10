@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- Definition of the artifact -->
+    <groupId>com.santander.sgt.ap11085</groupId>
+    <artifactId>sgt-ap11085-accmanagement</artifactId>
+    <version>6.0.1</version>
+    <packaging>jar</packaging>
+    <!-- Information about the application -->
+    <name>sgt-ap11085-accmanagement</name>
+    <description>Microservicio que incluye los endpoints de numeración del API Accounts, apertura, modificación de
+        atributos, consultas, etc
+    </description>
+    <!-- Use starter parent -->
+    <parent>
+        <groupId>com.santander.darwin</groupId>
+        <artifactId>darwin-spring-boot-starter-parent</artifactId>
+        <version>6.2.1</version>
+    </parent>
+
+    <!-- Java compile version -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Leancore Dependencies -->
+        <dependency>
+            <groupId>com.santander.sgt.ap11085</groupId>
+            <artifactId>sgt-ap11085-accnumeratorlib</artifactId>
+            <version>6.0.1</version>
+        </dependency>
+        <!-- END Leancore Dependencies -->
+
+
+        <!-- End Santander Darwin libraries -->
+
+        <!--    Provided dependencies    -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+        </dependency>
+
+        <!-- H2 dependencies -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--   END  Provided dependencies    -->
+        <!-- Override to fix vulnerability. Delete when Darwin includes this version -->
+        <!-- Spring Boot Actuator dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Servlet WebApp starter	-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- OpenAPI dependency -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+        <!-- Santander Darwin libraries -->
+        <!-- Core dependency -->
+        <dependency>
+            <groupId>com.santander.darwin</groupId>
+            <artifactId>darwin-spring-boot-starter-core</artifactId>
+        </dependency>
+        <!-- Logging dependency -->
+        <dependency>
+            <groupId>com.santander.darwin</groupId>
+            <artifactId>darwin-spring-boot-starter-logging-kafka</artifactId>
+        </dependency>
+        <!-- Cache dependency -->
+        <dependency>
+            <groupId>com.santander.darwin</groupId>
+            <artifactId>darwin-spring-boot-starter-cache-caffeine</artifactId>
+        </dependency>
+        <!-- Authentication dependency -->
+        <dependency>
+            <groupId>com.santander.darwin</groupId>
+            <artifactId>darwin-spring-boot-starter-authentication</artifactId>
+        </dependency>
+        <!-- Omnichannel dependency -->
+        <dependency>
+            <groupId>com.santander.darwin</groupId>
+            <artifactId>darwin-spring-boot-starter-omnichannel</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Junit 5 Dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Enables any legacy JUnit 3 and JUnit 4 tests you may have. Not needed for JUnit 5 tests. -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- Spring security dependency for testing -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <!-- Build plugins -->
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- Maven Plugin for the encoding -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <propertiesEncoding>ISO-8859-1</propertiesEncoding>
+                </configuration>
+            </plugin>
+            <!-- Jacoco Maven Plugin for coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <!-- End build Plugins -->
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.yaml</include>
+                    <include>**/banner.txt</include>
+                    <include>schema.sql</include>
+                    <include>**/darwinchannels.json</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

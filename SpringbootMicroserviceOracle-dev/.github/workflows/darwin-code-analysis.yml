@@ -1,0 +1,14 @@
+name: Darwin Code Analysis Plugin
+on:
+  pull_request:
+    branches:
+      - development
+      - develop
+      - main
+      - master
+
+jobs:
+  call-reusable-workflow:
+    name: Darwin Code Analysis Plugin
+    uses: santander-group-shared-assets/gln-back-workflows/.github/workflows/darwin-code-validation.yml@v1
+    secrets: inherit

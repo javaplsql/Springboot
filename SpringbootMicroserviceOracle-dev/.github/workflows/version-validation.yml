@@ -1,0 +1,16 @@
+name: Maven version release validation
+on:
+  pull_request:
+    branches:
+      - development
+      - develop
+      - main
+      - master
+
+jobs:
+  call-reusable-workflow:
+    name: Version release validation
+    uses: santander-group-shared-assets/gln-workflows/.github/workflows/version-release-validation.yml@v1
+    with:
+      version_file: 'pom.xml'
+    secrets: inherit
