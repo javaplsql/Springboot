@@ -1,0 +1,6 @@
+FROM registry.global.ccc.srvb.can.paas.cloudcenter.corp/produban/javase-17-ubi8:1.7.2.RELEASE
+WORKDIR /opt/app
+COPY target/native-executable /opt/app
+# Execute java
+# We need to rewrite entrypoint because image base only support jar executions
+ENTRYPOINT ["sh", "-c", "/opt/app/native-executable ${JAVA_OPTS_EXT} $JAVA_PARAMETERS ${@}"]

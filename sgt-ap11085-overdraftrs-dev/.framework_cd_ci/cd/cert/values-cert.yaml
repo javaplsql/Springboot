@@ -1,0 +1,14 @@
+# Here is an example file of how to give deployment values for a specific environment
+
+image:
+  ## @param image.pullPolicy plsql micro image pull policy
+  ## Specify a imagePullPolicy
+  ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+  ## Default value is 'IfNotPresent', but if you want to always pull the image set it to 'Always'
+  ## This could the key of cert environment because we want to deploy different images with the same tag SNAPSHOT
+  pullPolicy: Always
+
+plsql:
+  spring:
+    # Set profile value. It is used to logging porpoises and to select spring profile
+    profiles: cert

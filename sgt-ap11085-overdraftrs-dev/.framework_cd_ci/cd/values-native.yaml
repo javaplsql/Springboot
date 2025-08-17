@@ -1,0 +1,19 @@
+# Default configuration for native microservicies
+
+plsql:
+  java:
+    opts_ext: "-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8 -XX:ActiveProcessorCount=2"
+
+resources:
+  limits:
+    memory: 500M
+    cpu: 1000m
+  requests:
+    memory: 50M
+    cpu: 200m
+
+readinessProbe:
+  initialDelaySeconds: 1
+
+livenessProbe:
+  initialDelaySeconds: 30

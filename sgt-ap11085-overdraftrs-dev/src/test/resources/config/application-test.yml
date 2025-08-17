@@ -1,0 +1,72 @@
+# =======================
+# Server Configuration
+# =======================
+server:
+  shutdown: graceful
+  forward-headers-strategy: framework
+  servlet:
+    context-path: /overdrafts-reason
+
+# =======================
+# Darwin Configuration
+# =======================
+darwin:
+  app-key: RO
+  darwin-error-format: true
+  region: boae
+  suffix: ""
+  logging:
+    activity:
+      enabled: true
+    trace-context:
+      enabled: true
+    system: Cuentas Vista y Plazo
+    subsystem: ISL00140 CUENTAS PERSONALES
+    application: 00000148 DESCUBIERTOS
+    subapplication: overdrafts-reason
+    paas-app-version: "@project.version@"
+    functional:
+      logged-endpoints: ${server.servlet.context-path}/**
+  core:
+    exceptions:
+      error-format: extended-error
+    reactor:
+      context-propagation: AUTO
+  security:
+    connectors:
+      pkm-connector:
+        pkm-endpoint:
+          -
+
+# =======================
+# Spring Configuration
+# =======================
+spring:
+  application:
+    name: sgt-ap11085-overdraftrs
+  session:
+    store-type: none
+  cache:
+    type: caffeine
+    caffeine:
+      spec: expireAfterWrite=5m
+  datasource:
+    url: jdbc:h2:mem:testdb;
+    jdbcUrl: jdbc:h2:mem:testdb;
+    username: test_user
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+
+# =======================
+# Logging Configuration
+# =======================
+logging:
+  level:
+    com.santander.leancore: INFO
+    root: INFO

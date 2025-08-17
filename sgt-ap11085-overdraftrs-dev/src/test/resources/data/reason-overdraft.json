@@ -1,0 +1,14 @@
+{
+  "entity": "0000000049",
+  "brand": "BANIF",
+  "reasonCode": "15",
+  "startDateTime": "2025-08-14 13:54:51.031",
+  "descData": "Descripcion descubierto",
+  "settlementIndicator": "N",
+  "mandatory": "Y",
+  "defaultDate": "2025-09-10",
+  "months": 9.25,
+  "counter": 3,
+  "condition": "<=",
+  "endDateTime": "9999-12-31 23:59:59.999"
+}

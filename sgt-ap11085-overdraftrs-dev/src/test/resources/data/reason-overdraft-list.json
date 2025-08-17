@@ -1,0 +1,47 @@
+[
+  {
+    "entity": "0000000049",
+    "brand": "SANTANDER",
+    "reasonCode": "01",
+    "startDateTime": "2025-07-28 13:54:51.031",
+    "descData": "Descripcion descubierto",
+    "settlementIndicator": "N",
+    "mandatory": "Y",
+    "defaultDate": "2025-09-05",
+    "months": 9.25,
+    "counter": 3,
+    "condition": "<=",
+    "creationUser": "testMotivo01",
+    "lastUpdaterUser": "testMotivo01"
+  },
+  {
+    "entity": "0000000049",
+    "brand": "SANTANDER",
+    "reasonCode": "02",
+    "startDateTime": "2025-07-28 13:54:51.031",
+    "descData": "Descripcion descubierto",
+    "settlementIndicator": "N",
+    "mandatory": "Y",
+    "defaultDate": "2025-09-10",
+    "months": 9.25,
+    "counter": 3,
+    "condition": "<=",
+    "creationUser": "testMotivo02",
+    "lastUpdaterUser": "testMotivo02"
+  },
+  {
+    "entity": "0000000049",
+    "brand": "SANTANDER",
+    "reasonCode": "03",
+    "startDateTime": "2025-07-28 13:54:51.031",
+    "descData": "Descripcion descubierto",
+    "settlementIndicator": "N",
+    "mandatory": "Y",
+    "defaultDate": "2025-09-15",
+    "months": 9.25,
+    "counter": 3,
+    "condition": "<=",
+    "creationUser": "testMotivo03",
+    "lastUpdaterUser": "testMotivo03"
+  }
+]
