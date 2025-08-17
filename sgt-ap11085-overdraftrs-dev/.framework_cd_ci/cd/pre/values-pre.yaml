@@ -1,0 +1,6 @@
+# Here is an example file of how to give deployment values for a specific environment
+
+plsql:
+  spring:
+    # Set profile value. It is used to logging porpoises and to select spring profile
+    profiles: pre

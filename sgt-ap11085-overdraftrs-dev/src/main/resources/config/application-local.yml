@@ -1,0 +1,124 @@
+# =======================
+# Server Configuration
+# =======================
+server:
+  shutdown: graceful
+  forward-headers-strategy: framework
+  servlet:
+    context-path: /overdrafts-reason
+
+# =======================
+# SpringDoc Configuration
+# =======================
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# =======================
+# Darwin Configuration
+# =======================
+darwin:
+  app-key: RO
+  darwin-error-format: true
+  region: boae
+  suffix: ""
+  logging:
+    activity:
+      enabled: true
+    trace-context:
+      enabled: true
+    system: Cuentas Vista y Plazo
+    subsystem: ISL00140 CUENTAS PERSONALES
+    application: 00000148 DESCUBIERTOS
+    subapplication: overdrafts-reason
+    paas-app-version: "@project.version@"
+    functional:
+      logged-endpoints: ${server.servlet.context-path}/**
+    kafka:
+      server:
+      protocol-validation.enabled: true
+      properties:
+        security.protocol: SASL_SSL
+        sasl.kerberos.service.name: kafka
+        sasl.mechanism: GSSAPI
+        sasl.jaas.config: com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true storeKey=true keyTab="C:/kafka_config/apl_ojouaccounts_aes256_dev.keytab" principal="apl_ojouaccounts_dev@PREBCE.PRESAN.SANTANDER.CORP";
+  security:
+    connectors:
+      pkm-connector:
+        pkm-endpoint:
+          - https://pkm-gravityplus.sgtech.dev.corp/v1/publicKey
+    white-list:
+      - /actuator/health/**
+    #      - /**
+    authorization:
+      methods-list:
+        - multiEntityOperativeControl
+  core:
+    exceptions:
+      error-format: extended-error
+    reactor:
+      context-propagation: AUTO
+
+# =======================
+# Spring Configuration
+# =======================
+spring:
+  messages:
+    encoding: UTF-8
+  application:
+    name: sgt-ap11085-overdraftrs
+  session:
+    store-type: none
+  cache:
+    type: caffeine
+    caffeine:
+      spec: expireAfterWrite=5m
+  datasource:
+    url: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
+    jdbcUrl: jdbc:oracle:thin:@ODISLM4C.ISBAN.DEV.CORP:60137/ODISLM4C
+    username: DELM4C
+    password: ous_C5sT3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+
+# =======================
+# Management Configuration
+# =======================
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+# =======================
+# Logging Configuration
+# =======================
+logging:
+  level:
+    com.santander.leancore: INFO
+    root: INFO
+
+# =======================
+# Resilience4j Configuration
+# =======================
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        minimumNumberOfCalls: 100
+        permittedNumberOfCallsInHalfOpenState: 10
+        waitDurationInOpenState: 60000
+        failureRateThreshold: 50
+        ignore-exceptions:
+          - com.santander.darwin.core.exceptions.BadRequestDarwinException
+          - com.santander.darwin.core.exceptions.UnauthorizedDarwinException
+          - com.santander.darwin.core.exceptions.ForbiddenDarwinException
+          - com.santander.darwin.core.exceptions.NotFoundDarwinException
+          - com.santander.digitalcore.accounts.util.lib.core.exceptions.BadRequestDarwinExceptionLeancore
+          - com.santander.digitalcore.accounts.util.lib.core.exceptions.UnauthorizedDarwinExceptionLeancore
+          - com.santander.digitalcore.accounts.util.lib.core.exceptions.ForbiddenDarwinExceptionLeancore
+          - com.santander.digitalcore.accounts.util.lib.core.exceptions.NotFoundDarwinExceptionLeancore

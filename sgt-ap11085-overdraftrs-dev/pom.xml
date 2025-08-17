@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Definition of the artifact -->
+	<groupId>com.santander.sgt.ap11085</groupId>
+	<artifactId>sgt-ap11085-overdraftrs</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<!-- Information about the application -->
+	<name>sgt-ap11085-overdraftrs</name>
+	<description>Microservicio para realizar las gestiones necesarias sobre la tabla de motivos de descubierto  DC_REASON_OVERDRAFT</description>
+	<!-- Use starter parent -->
+	<parent>
+	<groupId>com.santander.darwin</groupId>
+		<artifactId>darwin-spring-boot-starter-parent</artifactId>
+		<version>6.2.1</version>
+	</parent>
+
+	<!-- Java compile version -->
+	<properties>
+		<java.version>17</java.version>
+		<org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.santander.sgt.ap11085</groupId>
+			<artifactId>sgt-ap11085-utillibdb</artifactId>
+			<version>6.2.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.santander.sgt.ap11085</groupId>
+			<artifactId>sgt-ap11085-utillibcore</artifactId>
+			<version>6.1.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>6.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.santander.sgt.ap11085</groupId>
+			<artifactId>sgt-ap11085-utillibtest</artifactId>
+			<version>6.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- External Dependencies-->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+
+	    <!-- Spring Boot Actuator dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- Servlet WebApp starter	-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- OpenAPI dependency -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		</dependency>
+		<!-- Santander Darwin libraries -->
+		<!-- Core dependency -->
+		<dependency>
+			<groupId>com.santander.darwin</groupId>
+			<artifactId>darwin-spring-boot-starter-core</artifactId>
+		</dependency>       
+		<!-- Logging dependency -->
+		<dependency>
+			<groupId>com.santander.darwin</groupId>
+			<artifactId>darwin-spring-boot-starter-logging-kafka</artifactId>
+		</dependency>
+		<!-- Cache dependency -->
+		<dependency>
+			<groupId>com.santander.darwin</groupId>
+			<artifactId>darwin-spring-boot-starter-cache-caffeine</artifactId>
+		</dependency>
+		<!-- Authentication dependency -->
+		<dependency>
+			<groupId>com.santander.darwin</groupId>
+			<artifactId>darwin-spring-boot-starter-authentication</artifactId>
+		</dependency>
+		<!-- Omnichannel dependency -->
+		<dependency>
+			<groupId>com.santander.darwin</groupId>
+			<artifactId>darwin-spring-boot-starter-omnichannel</artifactId>
+		</dependency>
+		<!-- End Santander Darwin libraries -->
+		<!--    Provided dependencies    -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Junit 5 Dependencies -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Enables any legacy JUnit 3 and JUnit 4 tests you may have. Not needed for JUnit 5 tests. -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring security dependency for testing -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- H2 database for integration testing -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- Build plugins -->
+		<plugins>
+			<!-- Spring Boot Maven Plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- Maven Plugin for the encoding -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>${lombok-mapstruct-binding.version}</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<propertiesEncoding>ISO-8859-1</propertiesEncoding>
+				</configuration>
+			</plugin>
+			<!-- Jacoco Maven Plugin for coverage -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+		<!-- End build Plugins -->
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.yml</include>
+					<include>**/*.yaml</include>
+					<include>**/banner.txt</include>
+					<include>**/darwinchannels.json</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+</project>

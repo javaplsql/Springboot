@@ -1,0 +1,14 @@
+name: Security
+on:
+  pull_request:
+    branches:
+      - development
+      - develop
+      - main
+      - master
+
+jobs:
+  call-reusable-workflow:
+    name: Security
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-security-image.yml@v1
+    secrets: inherit

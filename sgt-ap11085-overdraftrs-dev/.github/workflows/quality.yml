@@ -1,0 +1,14 @@
+name: Quality
+on:
+  pull_request:
+    branches:
+      - development
+      - develop
+      - main
+      - master
+
+jobs:
+  call-reusable-workflow:
+    name: Quality
+    uses: java-group-shared-assets/gln-workflows/.github/workflows/maven-quality.yml@v1
+    secrets: inherit

@@ -1,0 +1,14 @@
+name: plsql Code Analysis Plugin
+on:
+  pull_request:
+    branches:
+      - development
+      - develop
+      - main
+      - master
+
+jobs:
+  call-reusable-workflow:
+    name: plsql Code Analysis Plugin
+    uses: java-group-shared-assets/gln-back-workflows/.github/workflows/plsql-code-validation.yml@v1
+    secrets: inherit
